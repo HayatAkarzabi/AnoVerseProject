@@ -31,7 +31,7 @@ public class ChatServer {
     private void broadcast(String message) {
         for (Session client : clients) {
             try {
-                client.getBasicRemote().sendText(message);
+                client.getBasicRemote().sgiendText(message);
             } catch (IOException e) {
                 e.printStackTrace();
             }
