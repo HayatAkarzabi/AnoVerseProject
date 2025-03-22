@@ -38,5 +38,20 @@ public class ImplUser implements IUser {
 
     }
 
+    @Override
+
+    public User findUser(String email) {
+        try {
+            return em.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)
+                    .setParameter("email", email)
+                    .getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace(); // Affiche l'erreur en cas de problème
+            return null; // Retourne null si l'utilisateur n'est pas trouvé
+        }
+    }
+
+
+
 
 }
