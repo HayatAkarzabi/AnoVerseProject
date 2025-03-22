@@ -44,10 +44,89 @@
     <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 
+<div class="container">
+    <h3 class="text-center">New Films</h3>
+    <div class="row">
+        <div class="card crd-ho">
+            <div class="card-body text-center">
 
-<footer>
-    <p>&copy; 2025 Animé Réservations - Tous droits réservés</p>
-</footer>
+                <%-- la disponibilité de film --%>
+                <p>Disponible?</p>
+                <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
+                <p>Film name</p>
+                <p>auteur</p>
+                <p>categorie</p>
+                <div class="row">
+                    <a href="" class="btn btn-danger btn-sm ml-2">Add Cart</a>
+                    <a href="" class="btn btn-danger btn-sm ml-2">Views Details</a>
+                    <a href="" class="btn btn-danger btn-sm ml-2">prix</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+ <a href="" class="btn btn-danger btn-sm">View All</a>
+</div>
+<hr width="50%" size="3" color="#000" noshade align="center">
+
+
+
+<div class="container">
+    <h3 class="text-center">Recent Films</h3>
+    <div class="row">
+        <div class="card crd-ho">
+            <div class="card-body text-center">
+
+                <%-- la disponibilité de film --%>
+                <p>Disponible?</p>
+                <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
+                <p>Film name</p>
+                <p>auteur</p>
+                <p>categorie</p>
+                <div class="row">
+                    <a href="" class="btn btn-danger btn-sm ml-2">Add Cart</a>
+                    <a href="" class="btn btn-danger btn-sm ml-2">Views Details</a>
+                    <a href="" class="btn btn-danger btn-sm ml-2">prix</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <a href="" class="btn btn-danger btn-sm">View All</a>
+</div>
+<hr width="50%" size="3" color="#000" noshade align="center">
+
+
+<div class="container">
+    <h3 class="text-center">Old Films</h3>
+    <div class="row">
+        <div class="card crd-ho">
+            <div class="card-body text-center">
+
+                <%-- la disponibilité de film --%>
+                <p>Disponible?</p>
+                <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
+                <p>Film name</p>
+                <p>auteur</p>
+                <p>categorie</p>
+                <div class="row">
+                    <a href="" class="btn btn-danger btn-sm ml-2">Add Cart</a>
+                    <a href="" class="btn btn-danger btn-sm ml-2">Views Details</a>
+                    <a href="" class="btn btn-danger btn-sm ml-2">prix</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <a href="" class="btn btn-danger btn-sm">View All</a>
+</div>
+<%@include file="Component/footer.jsp"%>>
 <script>
     let slideIndex = 0;
     showSlides();

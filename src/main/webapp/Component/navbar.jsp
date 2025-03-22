@@ -1,5 +1,5 @@
 <div class="container-fluid" style="height: 10px; background: linear-gradient(to right, #ff9966, #ff5e62);" ></div>
-<div class="container-fluid p-3">
+<div class="container-fluid p-3 ">
     <div class="row">
         <div class="col-md-3 text-custom" >
             <h3><i class="fa-solid fa-film"></i> Anivers</h3>
@@ -12,8 +12,8 @@
         </div>
 
         <div class="col-md-3">
-            <a href="" class="btn btn-success">Login</a>
-            <a href="Register.jsp" class="btn btn-primary">Sign up</a>
+            <a href="Login.jsp" class="btn btn-success" ><i class="fa-solid fa-right-from-bracket"></i> Login</a>
+            <a href="Register.jsp" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Sign up</a>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
                 <a class="nav-link" href="index.jsp"><i class="fa-solid fa-house"></i> Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-solid fa-film"></i> Recent Film</a>
+                <a class="nav-link" href=""><i class="fa-solid fa-film"></i> Recent Film</a>
             </li><li class="nav-item">
             <a class="nav-link" href="#"><i class="fa-solid fa-film"></i> New Film</a>
         </li>

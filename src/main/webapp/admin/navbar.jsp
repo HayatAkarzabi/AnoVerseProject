@@ -11,10 +11,10 @@
             </form>
         </div>
 
-        <div class="col-md-3">
-            <a href="Login.jsp" class="btn btn-success" ><i class="fa-solid fa-right-from-bracket"></i> Login</a>
-            <a href="Register.jsp" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Sign up</a>
-        </div>
+<%--        <div class="col-md-3">--%>
+<%--            <a href="Login.jsp" class="btn btn-success" ><i class="fa-solid fa-right-from-bracket"></i> Login</a>--%>
+<%--            <a href="Register.jsp" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Sign up</a>--%>
+<%--        </div>--%>
     </div>
 
 </div>
@@ -30,19 +30,7 @@
             <li class="nav-item ">
                 <a class="nav-link" href="index.jsp"><i class="fa-solid fa-house"></i> Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa-solid fa-film"></i> Recent Film</a>
-            </li><li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-film"></i> New Film</a>
-        </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#"><i class="fa-solid fa-film"></i> Old Film</a>
-            </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-light my-2 my-sm-0" type="submit"><i class="fa-solid fa-gears "></i> Setting</button>
-            <button class="btn btn-light my-2 my-sm-0 ml-1" type="submit"><i class="fa-solid fa-headset"></i> Contact</button>
-        </form>
     </div>
 </nav>
 
