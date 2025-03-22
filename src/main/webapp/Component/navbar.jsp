@@ -31,7 +31,7 @@
                 <a class="nav-link" href="index.jsp"><i class="fa-solid fa-house"></i> Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=""><i class="fa-solid fa-film"></i> Recent Film</a>
+                <a class="nav-link" href="admin/home.jsp"><i class="fa-solid fa-film"></i> Recent Film</a>
             </li><li class="nav-item">
             <a class="nav-link" href="#"><i class="fa-solid fa-film"></i> New Film</a>
         </li>
