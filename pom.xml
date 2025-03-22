@@ -32,7 +32,7 @@
         <dependency>
             <groupId>jakarta.ejb</groupId>
             <artifactId>jakarta.ejb-api</artifactId>
-            <version>3.2.6</version> <!-- Version stable plus ancienne -->
+            <version>4.0.0</version> <!-- Version stable plus ancienne -->
             <scope>provided</scope>
         </dependency>
 
@@ -69,6 +69,16 @@
             <artifactId>hibernate-core</artifactId>
             <version>7.0.0.Alpha3</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.2.7.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-hikaricp</artifactId>
+            <version>6.2.7.Final</version>
+        </dependency>
 
         <!-- JAXB Runtime -->
         <dependency>
@@ -102,7 +112,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.49</version>
+            <version>8.0.33</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
         </dependency>
 
         <!-- Lombok (fourni pour simplifier le code) -->

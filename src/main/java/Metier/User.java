@@ -45,7 +45,7 @@ public class User implements Serializable {
     }
     public User( String email, String motDePasse){
         this.email=email;
-        this.motDePasse=motDePasse;
+        this.motDePasse=BCrypt.hashpw(motDePasse, BCrypt.gensalt());
     }
 
     public String getEmail() {
@@ -69,5 +69,10 @@ public class User implements Serializable {
 
     public void setRole(String role) {
         this.role = (role == null || role.isEmpty()) ? "client" : role;
+    }
+    // Dans la classe User (si c'est là que vous voulez gérer le hachage)
+    public void setMotDePasse(String motDePasse) {
+        // Hacher le mot de passe avant de le stocker
+        this.motDePasse = BCrypt.hashpw(motDePasse, BCrypt.gensalt());
     }
 }

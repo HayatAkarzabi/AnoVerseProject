@@ -18,18 +18,24 @@
                     <h3 class="text-center">Login</h3>
 
                     <!-- Affichage du message d'erreur si les identifiants sont incorrects -->
-                    <% String error = (String) request.getAttribute("error");
-                        if (error != null) { %>
+                    <% String error = (String) request.getAttribute("error"); %>
+                    <% if (error != null) { %>
                     <div class="alert alert-danger" role="alert">
                         <%= error %>
                     </div>
                     <% } %>
 
+                    <!-- Affichage du message de succès (si besoin) -->
+                    <% String success = (String) request.getAttribute("success"); %>
+                    <% if (success != null) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= success %>
+                    </div>
+                    <% } %>
+
                     <!-- Formulaire de connexion -->
-                    <form action="Login" method="POST">
-
-
-                    <div class="form-group">
+                    <form action="Login" method="post">
+                        <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
                         </div>

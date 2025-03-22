@@ -4,26 +4,41 @@ import Dao.ImplUser;
 import Metier.User;
 import org.mindrot.jbcrypt.BCrypt;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
-@WebServlet("/Login")
+@WebServlet(name = "LoginServlet", urlPatterns = {"/Login"})
 public class LoginServlet extends HttpServlet {
 
     private ImplUser userDao;
 
+
     @Override
     public void init() throws ServletException {
-        userDao = new ImplUser();
+        try {
+            // Try to load the driver class explicitly
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("MySQL driver loaded successfully");
+
+            userDao = new ImplUser();
+        } catch (ClassNotFoundException e) {
+            System.err.println("MySQL driver not found: " + e.getMessage());
+            throw new ServletException("MySQL driver not found", e);
+        } catch (Exception e) {
+            System.err.println("Error initializing servlet: " + e.getMessage());
+            e.printStackTrace();
+            throw new ServletException("Failed to initialize UserDAO", e);
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
         // Récupération des paramètres du formulaire
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -63,8 +78,4 @@ public class LoginServlet extends HttpServlet {
         request.getRequestDispatcher("Login.jsp").forward(request, response);
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("Login.jsp");
-    }
 }
