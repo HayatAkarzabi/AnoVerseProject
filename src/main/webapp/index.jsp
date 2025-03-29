@@ -8,27 +8,21 @@
     <%@include file="Component/CSS.jsp" %>
 </head>
 <body>
-<%@include file="Component/navbar.jsp" %>
+<%@include file="Component/navbar.jsp" %><br><br>
 
 <!-- Slideshow container -->
 <div class="slideshow-container">
     <!-- Full-width images with number and caption text -->
     <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="Images/anime1.jpg"  style="width:100%; height: 50vh;">
-        <div class="text">Caption Text</div>
+        <img src="Images/anime1.jpg" >
     </div>
 
     <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="Images/anime2.jpg" style="width:100%; height: 50vh;">
-        <div class="text">Caption Two</div>
+        <img src="Images/anime2.webp">
     </div>
 
     <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="Images/anime3.png" style="width:100%; height: 50vh;">
-        <div class="text">Caption Three</div>
+        <img src="Images/anime3.png" >
     </div>
 
     <!-- Next and previous buttons -->
@@ -54,20 +48,12 @@
                 <p>Disponible?</p>
                 <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
                 <p>Film name</p>
-                <p>auteur</p>
-                <p>categorie</p>
-                <div class="row">
-                    <a href="" class="btn btn-danger btn-sm ml-2">Add Cart</a>
-                    <a href="" class="btn btn-danger btn-sm ml-2">Views Details</a>
-                    <a href="" class="btn btn-danger btn-sm ml-2">prix</a>
-
-                </div>
             </div>
         </div>
     </div>
 </div>
 <div class="text-center">
- <a href="" class="btn btn-danger btn-sm">View All</a>
+    <a href="" class="btn btn-danger btn-sm">View All</a>
 </div>
 <hr width="50%" size="3" color="#000" noshade align="center">
 
@@ -83,14 +69,7 @@
                 <p>Disponible?</p>
                 <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
                 <p>Film name</p>
-                <p>auteur</p>
-                <p>categorie</p>
-                <div class="row">
-                    <a href="" class="btn btn-danger btn-sm ml-2">Add Cart</a>
-                    <a href="" class="btn btn-danger btn-sm ml-2">Views Details</a>
-                    <a href="" class="btn btn-danger btn-sm ml-2">prix</a>
 
-                </div>
             </div>
         </div>
     </div>
@@ -111,14 +90,7 @@
                 <p>Disponible?</p>
                 <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
                 <p>Film name</p>
-                <p>auteur</p>
-                <p>categorie</p>
-                <div class="row">
-                    <a href="" class="btn btn-danger btn-sm ml-2">Add Cart</a>
-                    <a href="" class="btn btn-danger btn-sm ml-2">Views Details</a>
-                    <a href="" class="btn btn-danger btn-sm ml-2">prix</a>
 
-                </div>
             </div>
         </div>
     </div>
@@ -126,44 +98,123 @@
 <div class="text-center">
     <a href="" class="btn btn-danger btn-sm">View All</a>
 </div>
-<%@include file="Component/footer.jsp"%>>
+<%@include file="Component/footer.jsp"%>
 <script>
     let slideIndex = 0;
-    showSlides();
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("dot");
+    let slideInterval;
 
     function showSlides() {
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-
+        // Hide all slides
         for (let i = 0; i < slides.length; i++) {
+            slides[i].style.opacity = "0";
+            slides[i].style.transition = "opacity 0.7s ease-in-out";
             slides[i].style.display = "none";
         }
 
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
-
+        // Reset dot active states
         for (let i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
 
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
+        // Increment slide index
+        slideIndex++;
+        if (slideIndex >= slides.length) {
+            slideIndex = 0;
+        }
 
-        setTimeout(showSlides, 3000); // Change image every 3 seconds
+        // Show current slide with fade effect
+        slides[slideIndex].style.display = "block";
+        setTimeout(() => {
+            slides[slideIndex].style.opacity = "1";
+        }, 50);
+
+        // Activate current dot
+        dots[slideIndex].className += " active";
     }
 
     function plusSlides(n) {
+        // Stop automatic sliding when manually changing slides
+        clearInterval(slideInterval);
+
         slideIndex += n;
-        if (slideIndex < 1) {
-            slideIndex = document.getElementsByClassName("mySlides").length;
+
+        // Wrap around slide index
+        if (slideIndex >= slides.length) {
+            slideIndex = 0;
         }
-        showSlides();
+        if (slideIndex < 0) {
+            slideIndex = slides.length - 1;
+        }
+
+        // Show slides immediately
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            slides[i].style.opacity = "0";
+        }
+
+        slides[slideIndex].style.display = "block";
+        setTimeout(() => {
+            slides[slideIndex].style.opacity = "1";
+        }, 50);
+
+        // Reset dot active states
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        dots[slideIndex].className += " active";
+
+        // Restart automatic sliding
+        startSlideShow();
     }
 
     function currentSlide(n) {
-        slideIndex = n;
-        showSlides();
+        // Stop automatic sliding when manually selecting a slide
+        clearInterval(slideInterval);
+
+        slideIndex = n - 1;
+
+        // Show slides immediately
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            slides[i].style.opacity = "0";
+        }
+
+        slides[slideIndex].style.display = "block";
+        setTimeout(() => {
+            slides[slideIndex].style.opacity = "1";
+        }, 50);
+
+        // Reset dot active states
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        dots[slideIndex].className += " active";
+
+        // Restart automatic sliding
+        startSlideShow();
     }
+
+    function startSlideShow() {
+        // Clear any existing interval
+        clearInterval(slideInterval);
+
+        // Start new interval
+        slideInterval = setInterval(showSlides, 4000); // Change slide every 4 seconds
+    }
+
+    // Initialize slideshow on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        // Add initial styling
+        for (let slide of slides) {
+            slide.style.transition = "opacity 0.7s ease-in-out";
+            slide.style.opacity = "0";
+        }
+
+        // Start the slideshow
+        startSlideShow();
+    });
 </script>
 
 </body>

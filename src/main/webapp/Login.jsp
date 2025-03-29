@@ -12,9 +12,12 @@
 <%@ include file="Component/navbar.jsp" %>
 
 <div class="container p-3">
-    <div class="row">
-        <div class="col-md-4 offset-md-4">
-            <div class="card">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center">  <!-- Ajout de col-md-6 -->
+            <img src="Images/logo.jpg" class="logo bounce">
+        </div>
+        <div class="col-md-6 ">
+            <div class="card ">
                 <div class="card-body">
                     <h3 class="text-center">Login</h3>
 
@@ -37,12 +40,10 @@
                     <!-- Formulaire de connexion -->
                     <form action="Login" method="post">
                         <div class="form-group">
-                            <label for="email">Email address</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Password</label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
                         </div>
 

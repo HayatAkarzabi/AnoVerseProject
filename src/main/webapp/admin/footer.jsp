@@ -1,5 +1,16 @@
-<footer class="container-fluid text-center text-white bg-custom p-3 mt-2">
-    <h5>
-        <p>&copy; 2025 Animé Réservations - Tous droits réservés</p>
-    </h5>
-</footer>
+<%--
+  Created by IntelliJ IDEA.
+  User: hp
+  Date: 29/03/2025
+  Time: 15:38
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
