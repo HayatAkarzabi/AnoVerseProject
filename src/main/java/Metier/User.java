@@ -48,6 +48,12 @@ public class User implements Serializable {
         this.motDePasse=BCrypt.hashpw(motDePasse, BCrypt.gensalt());
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+
     public String getEmail() {
         return email;
     }
