@@ -17,8 +17,17 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 public class Film implements Serializable {
+    public Film(String actors, String director, String genre, String title, String writer, int year) {
+        this.actors = actors;
+        this.director = director;
+        this.genre = genre;
+        this.title = title;
+        this.writer = writer;
+        this.year = year;
+    }
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long  id;
     private String title;
     private String genre;
     private int year;

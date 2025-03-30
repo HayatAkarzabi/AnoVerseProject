@@ -12,7 +12,8 @@ public class Main {
         IUser dao = new ImplUser();
         IFilm film =  new ImplFilm();
 
-        dao.AddUser(new User("Hayat@gmail.com","1234","admin"));
+        dao.AddUser(new User("Imane@gmial.com","4444","admin"));
+        dao.AddUser(new User("hayat@gmial.com","1234"));
 
 
     }
