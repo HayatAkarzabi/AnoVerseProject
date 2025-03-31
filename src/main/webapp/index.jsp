@@ -13,18 +13,33 @@
 <!-- Slideshow container -->
 <div class="slideshow-container">
     <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-        <img src="Images/anime1.jpg" >
-    </div>
 
     <div class="mySlides fade">
         <img src="Images/anime2.webp">
     </div>
 
     <div class="mySlides fade">
-        <img src="Images/anime3.png" >
+        <img src="Images/anime1.jpg" >
     </div>
 
+
+
+
+    <div class="mySlides fade">
+        <img src="Images/anime2.png" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/anime4.png" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/anime5.png" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/anime6.png" >
+    </div>
     <!-- Next and previous buttons -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
