@@ -1,0 +1,304 @@
+body {
+    position: relative;
+    background: url("b.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #d4af37;
+    font-family: Arial, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Garde la même image */
+    filter: blur(8px); /* Applique un flou */
+    z-index: -1; /* Place l'effet sous le contenu */
+}
+.navbar .logo{
+    width: 100px;
+    mix-blend-mode: screen;
+}
+.logo{
+    width: 400px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.8));
+    border-radius: 20px;
+}
+.logo:hover {
+    filter: brightness(1.2);
+    transition: 0.3s;
+}
+.navbar{
+    background: rgba(31, 31, 31, 0.7) !important; /* Augmentez légèrement l'opacité */
+    backdrop-filter: blur(0px) saturate(200%); /* Augmentez l'intensité du flou */
+    -webkit-backdrop-filter: blur(20px) saturate(200%); /* Compatibilité Safari */
+    box-shadow: 0px 0px 30px rgba(277,228,237,0.37);
+    border: 2px solid rgba(255,255,255,0.18);
+
+}
+.navbar .nav-item {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar .nav-item:hover {
+    transform: scale(1.1); /* Agrandit l'élément de 10% */
+    color: darkgoldenrod; /* Change la couleur en or */
+}
+
+.navbar .nav-item:hover .nav-link {
+    color: goldenrod !important; /* Assure que le lien change de couleur */
+    transform: scale(1.1); /* Agrandit le lien */
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8); /* Ajoute un effet d'éclat */
+}
+.nav-link{
+    color: gray !important;
+}
+.text-custom{
+    color: goldenrod;
+}
+
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+.mySlides img{
+    width: 80%;
+    height: 50vh;
+    border-radius: 30px;
+    display: block;  /* Pour éviter le comportement inline */
+    margin: auto;
+}
+
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a background color */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+.box {
+    height: 30px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #070606;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+/*pour la barre de recherche*/
+.box input {
+    color: #aa8400;
+    width: 0;
+    outline: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+    border: none;
+}
+
+.box input:focus {
+    width: 200px;
+    filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.8));
+}
+
+.box:hover input {
+    width: 200px;
+}
+
+.box a .fas {
+    color: goldenrod;
+    font-size: 18px;
+}
+
+.box input:focus + a .fas {
+    filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.8));
+}
+.collapse .col-md-3 .btn{
+    background-color: #1a1a1a;
+    color:gold;
+    border-radius: 20px;
+}
+
+.card {
+    background-color: #1a1a1a; /* Fond noir */
+    color: goldenrod; /* Texte doré */
+    border: 2px solid goldenrod; /* Bordure dorée */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); /* Ombre dorée */
+    max-width: 500px; /* Largeur maximale */
+}
+
+.card-body {
+    padding: 30px; /* Espacement intérieur */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espace entre les groupes de formulaire */
+    text-align: left; /* Aligne les labels à gauche */
+}
+
+.form-group label {
+    color: goldenrod; /* Labels en doré */
+    display: block; /* Label sur toute la largeur */
+    margin-bottom: 5px; /* Espace sous le label */
+    text-align: center; /* Centre les labels */
+}
+
+.form-control {
+    background-color: #2d2d2d; /* Fond des champs légèrement plus clair */
+    border: 1px solid goldenrod; /* Bordure dorée */
+    color: gold; /* Texte blanc */
+    border-radius: 20px; /* Coins très arrondis */
+    text-align: center; /* Centre le texte des inputs */
+}
+
+.form-control:focus {
+    background-color: #333; /* Fond un peu plus clair quand focus */
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8); /* Lueur dorée quand focus */
+    border-color: gold; /* Bordure plus brillante quand focus */
+    color: gold; /* Garde le texte blanc */
+}
+
+.btn-primary {
+    background-color: goldenrod; /* Fond du bouton doré */
+    border-color: gold; /* Bordure du bouton */
+    color: #1a1a1a; /* Texte noir */
+    border-radius: 20px; /* Coins arrondis */
+    padding: 8px 30px; /* Padding horizontal plus grand */
+    margin: 10px 0; /* Marge verticale */
+    font-weight: bold; /* Texte en gras */
+}
+
+.btn-primary:hover {
+    background-color: gold; /* Plus brillant au survol */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Effet de lueur au survol */
+    transform: scale(1.05); /* Légèrement plus grand au survol */
+}
+
+.card a {
+    color: goldenrod; /* Liens dorés */
+    text-decoration: none; /* Pas de soulignement */
+    display: inline-block; /* Pour permettre les effets */
+    margin-top: 10px; /* Marge au-dessus */
+    transition: all 0.3s ease; /* Transition douce */
+}
+
+.card a:hover {
+    color: gold; /* Plus brillant au survol */
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6); /* Lueur au survol */
+}
+
+.alert {
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    text-align: center; /* Texte centré */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+.alert-danger {
+    color: #ff6666; /* Rouge clair pour les erreurs */
+    border: 1px solid #ff6666; /* Bordure rouge */
+}
+
+.alert-success {
+    color: #66cc66; /* Vert clair pour les succès */
+    border: 1px solid #66cc66; /* Bordure verte */
+}
+.LR-card{
+
+}
+/*faire bouger l'image lentement de haut en bas*/
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Monte légèrement */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.bounce {
+    animation: floating 3s ease-in-out infinite; /* Animation fluide et infinie */
+}
