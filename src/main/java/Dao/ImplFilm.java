@@ -10,43 +10,37 @@ import java.util.List;
 public class ImplFilm implements IFilm {
     private EntityManager em;
     public ImplFilm() {
-        em = Persistence.createEntityManagerFactory("aniserse").createEntityManager();
+        em = Persistence.createEntityManagerFactory("demo").createEntityManager();
     }
     @Override
     public void AddFilm(Film film) {
-      em.getTransaction().begin();
-    em.persist(film);
-    em.getTransaction().commit();
-
+        em.getTransaction().begin();
+        em.persist(film);
 
     }
 
     @Override
     public void RemoveFilm(String filmName) {
         em.getTransaction().begin();
-        Film film = em.createQuery("SELECT f FROM Film f WHERE f.title = :titre", Film.class)
-                .setParameter("titre", filmName)
-                .getSingleResult();
-        if (film != null) {
-            em.remove(film);
-        }
-        em.getTransaction().commit();
+        Film film = em.find(Film.class, filmName);
+        em.remove(film);
+
     }
 
     @Override
     public List<Film> getAllFilms() {
-     return    em.createNativeQuery("SELECT * FROM film", Film.class).getResultList();
+      return  em.createNativeQuery("SELECT * FROM Film", Film.class).getResultList();
     }
 
     @Override
     public Film getFilm(Long id) {
-        em.getTransaction().begin();
-        return em.find(Film.class, id);
+       em.getTransaction().begin();
+       return em.find(Film.class, id);
     }
 
-
     @Override
-    public  void UpdateFilm(Film film) {
+
+    public void UpdateFilm(Film film) {
         em.getTransaction().begin();
         Film existingFilm = em.find(Film.class, film.getId());
 
@@ -58,16 +52,11 @@ public class ImplFilm implements IFilm {
             existingFilm.setActors(film.getActors());
             existingFilm.setWriter(film.getWriter());
 
-            em.merge(existingFilm); // Mettre à jour l'entité
+            em.merge(existingFilm); // Mise à jour de l'entité
         }
 
-        em.getTransaction().commit();
+        em.getTransaction().commit(); // Valider la transaction
     }
-
-
-
-
-
 
 
 

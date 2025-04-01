@@ -1,4 +1,4 @@
-package org.example.demo;
+package Service;
 
 import Dao.ImplUser;
 import Metier.User;

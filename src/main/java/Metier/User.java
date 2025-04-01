@@ -21,6 +21,14 @@ public class User implements Serializable {
 
     private String role;
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
+    }
+
     @OneToMany
     private List<Notification> notifications;
 
@@ -45,14 +53,8 @@ public class User implements Serializable {
     }
     public User( String email, String motDePasse){
         this.email=email;
-        this.motDePasse=BCrypt.hashpw(motDePasse, BCrypt.gensalt());
+        this.motDePasse=motDePasse;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
 
     public String getEmail() {
         return email;
@@ -75,10 +77,5 @@ public class User implements Serializable {
 
     public void setRole(String role) {
         this.role = (role == null || role.isEmpty()) ? "client" : role;
-    }
-    // Dans la classe User (si c'est là que vous voulez gérer le hachage)
-    public void setMotDePasse(String motDePasse) {
-        // Hacher le mot de passe avant de le stocker
-        this.motDePasse = BCrypt.hashpw(motDePasse, BCrypt.gensalt());
     }
 }
