@@ -1,4 +1,4 @@
-package org.example.demo;
+package Service;
 
 import Dao.ImplFilm;
 import Metier.Film;
@@ -16,35 +16,31 @@ public class AjouterFilmServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        filmDao = new ImplFilm(); // Initialisation du DAO
+        filmDao = new ImplFilm();
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            // Récupérer les valeurs du formulaire
             String title = request.getParameter("title");
             String genre = request.getParameter("genre");
             int year = Integer.parseInt(request.getParameter("year"));
             String director = request.getParameter("director");
             String actors = request.getParameter("actors");
             String writer = request.getParameter("writer");
+            String description = request.getParameter("description");
+            String photo = request.getParameter("photo");
 
-            // Vérification des champs (optionnelle)
-            if (title == null || genre == null || director == null || actors == null || writer == null) {
+            if (title == null || genre == null || director == null || actors == null || writer == null || description == null || photo == null) {
                 response.sendRedirect("error.jsp?message=Veuillez remplir tous les champs !");
                 return;
             }
 
-            // Créer un objet Film
-            Film film = new Film( title, genre,  director, actors, writer,year);
+            Film film = new Film(title, genre, director, actors, writer, description, year, photo);
 
-            // Ajouter le film en BD
             filmDao.AddFilm(film);
 
-            // Redirection après succès
             response.sendRedirect("confirmation.jsp");
-
         } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("error.jsp?message=Erreur lors de l'ajout du film !");

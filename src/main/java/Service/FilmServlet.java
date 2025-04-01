@@ -1,4 +1,4 @@
-/*package org.example.demo;
+package Service;
 
 import Dao.ImplFilm;
 import Metier.Film;
@@ -15,15 +15,9 @@ import java.util.List;
 public class FilmServlet extends HttpServlet {
     private ImplFilm filmDao;
 
-<<<<<<< Updated upstream
     @Override
     public void init() throws ServletException {
         filmDao = new ImplFilm();
-=======
-    static {
-        films.add(new Film( "Sci-Fi", "Christopher Nolan",  "Christopher Nolan"));
-        films.add(new Film(2, "Interstellar", "Sci-Fi", 2014, "Christopher Nolan", "Matthew McConaughey", "Jonathan Nolan"));
->>>>>>> Stashed changes
     }
 
     @Override
@@ -31,13 +25,10 @@ public class FilmServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null || action.equals("list")) {
-            // Afficher la liste des films
             List<Film> films = filmDao.getAllFilms();
             request.setAttribute("films", films);
             request.getRequestDispatcher("films.jsp").forward(request, response);
-
         } else if (action.equals("details")) {
-            // Afficher les détails d’un film
             long id = Long.parseLong(request.getParameter("id"));
             Film film = filmDao.getFilm(id);
             request.setAttribute("film", film);
@@ -57,6 +48,8 @@ public class FilmServlet extends HttpServlet {
             if (request.getParameter("director") != null) film.setDirector(request.getParameter("director"));
             if (request.getParameter("actors") != null) film.setActors(request.getParameter("actors"));
             if (request.getParameter("writer") != null) film.setWriter(request.getParameter("writer"));
+            if (request.getParameter("description") != null) film.setDiscription(request.getParameter("description"));
+            if (request.getParameter("photo") != null) film.setPhoto(request.getParameter("photo"));
 
             filmDao.UpdateFilm(film);
         }
@@ -64,5 +57,3 @@ public class FilmServlet extends HttpServlet {
         response.sendRedirect("films?action=list");
     }
 }
-
- */

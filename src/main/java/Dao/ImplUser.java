@@ -16,7 +16,7 @@ public class ImplUser implements IUser {
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
-        em.close();
+
 
     }
 
@@ -25,7 +25,7 @@ public class ImplUser implements IUser {
         em.getTransaction().begin();
         em.merge(em.find(User.class, id));
         em.getTransaction().commit();
-        em.close();
+
 
     }
 
@@ -34,7 +34,7 @@ public class ImplUser implements IUser {
         em.getTransaction().begin();
         em.remove(em.find(User.class, id));
         em.getTransaction().commit();
-        em.close();
+
 
     }
 
