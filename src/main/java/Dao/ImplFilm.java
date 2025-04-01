@@ -10,7 +10,7 @@ import java.util.List;
 public class ImplFilm implements IFilm {
     private EntityManager em;
     public ImplFilm() {
-        em = Persistence.createEntityManagerFactory("demo").createEntityManager();
+        em = Persistence.createEntityManagerFactory("aniverse").createEntityManager();
     }
     @Override
     public void AddFilm(Film film) {
