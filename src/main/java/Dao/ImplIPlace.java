@@ -9,7 +9,7 @@ import java.util.List;
 public class ImplIPlace implements IPlace {
     private EntityManager em;
     public ImplIPlace(){
-        em= Persistence.createEntityManagerFactory("AniVerse").createEntityManager();
+        em= Persistence.createEntityManagerFactory("aniverse").createEntityManager();
     }
 
     public void ajouterPlace(Place p) {

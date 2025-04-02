@@ -9,7 +9,7 @@ import java.util.List;
 public class ImplISeance implements ISeance {
     private EntityManager em;
     public ImplISeance(){
-        em= Persistence.createEntityManagerFactory("AniVerse").createEntityManager();
+        em= Persistence.createEntityManagerFactory("aniverse").createEntityManager();
     }
 
     public void ajouterSeance(Seance S) {

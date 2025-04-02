@@ -8,7 +8,7 @@ import jakarta.persistence.Persistence;
 public class ImplUser implements IUser {
     private EntityManager em ;
     public ImplUser() {
-        em= Persistence.createEntityManagerFactory("demo").createEntityManager();
+        em= Persistence.createEntityManagerFactory("aniverse").createEntityManager();
     }
 
 

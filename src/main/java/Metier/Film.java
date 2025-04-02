@@ -25,8 +25,8 @@ public class Film implements Serializable {
     private String director;
     private String actors;
     private String writer;
-    private String Discription;
-    private String Photo;
+    private String description;
+    private String imageUrl;
     public Film(String title,  String writer) {
         this.title = title;
         this.writer = writer;
@@ -41,7 +41,7 @@ public class Film implements Serializable {
     }
 
     public void setDiscription(String discription) {
-        Discription = discription;
+        description = description;
     }
 
     public void setGenre(String genre) {
@@ -52,9 +52,7 @@ public class Film implements Serializable {
         this.id = id;
     }
 
-    public void setPhoto(String photo) {
-        Photo = photo;
-    }
+
 
     public void setTitle(String title) {
         this.title = title;
@@ -76,8 +74,8 @@ public class Film implements Serializable {
         return director;
     }
 
-    public String getDiscription() {
-        return Discription;
+    public String getDescription() {
+        return description;
     }
 
     public String getGenre() {
@@ -88,9 +86,7 @@ public class Film implements Serializable {
         return id;
     }
 
-    public String getPhoto() {
-        return Photo;
-    }
+
 
     public String getTitle() {
         return title;
@@ -104,14 +100,26 @@ public class Film implements Serializable {
         return year;
     }
 
-    public Film(String title, String genre, String director, String actors, String writer, String Discription , int year, String Photo) {
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Film(String title, String genre, String director, String actors, String writer, String description , int year, String imageUrl) {
         this.title = title;
         this.genre = genre;
         this.director = director;
         this.actors = actors;
         this.writer = writer;
         this.year = year;
-        this.Discription = Discription;
-        this.Photo = Photo;
+        this.description = description;
+        this.imageUrl = imageUrl;
     }
 }

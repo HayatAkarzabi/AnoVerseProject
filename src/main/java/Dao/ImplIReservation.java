@@ -9,7 +9,7 @@ import java.util.List;
 public class ImplIReservation implements IReservation {
     private EntityManager em;
     public ImplIReservation() {
-        em= Persistence.createEntityManagerFactory("AniVerse").createEntityManager();
+        em= Persistence.createEntityManagerFactory("aniverse").createEntityManager();
     }
     public void ajouterReservation(Reservation r) {
         em.getTransaction().begin();

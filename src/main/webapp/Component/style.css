@@ -33,7 +33,7 @@ body::before {
     transition: 0.3s;
 }
 .navbar{
-    background: rgba(31, 31, 31, 0.7) !important; /* Augmentez légèrement l'opacité */
+    background: black !important; /* Augmentez légèrement l'opacité */
     backdrop-filter: blur(0px) saturate(200%); /* Augmentez l'intensité du flou */
     -webkit-backdrop-filter: blur(20px) saturate(200%); /* Compatibilité Safari */
     box-shadow: 0px 0px 30px rgba(277,228,237,0.37);

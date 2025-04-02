@@ -9,7 +9,7 @@ import java.util.List;
 public class ImplISalle implements ISalle {
     private EntityManager em;
     public ImplISalle() {
-        em= Persistence.createEntityManagerFactory("AniVerse").createEntityManager();
+        em= Persistence.createEntityManagerFactory("aniverse").createEntityManager();
     }
     public void ajouterSalle(Salle salle) {
         em.getTransaction().begin();
