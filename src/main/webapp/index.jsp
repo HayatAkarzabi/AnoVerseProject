@@ -12,18 +12,47 @@
 
 <!-- Slideshow container -->
 <div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <img src="Images/perfectBlue.jpg" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/sololeveling.jpg" style="width:100%" >
+    </div>
+    <div class="mySlides fade">
+        <img src="Images/monoke.jpg" style="width:100%" >
+    </div>
+
+
+    <div class="mySlides fade">
+        <img src="Images/madara.png" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/hunterXhunter.jpg" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/codeGeass.jpg" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/ghibli1.jpg" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/dandadan.jpg" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/vinland%20saga.png" style="width:100%" >
+    </div>
+
+
+
     <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-        <img src="Images/anime1.jpg" >
-    </div>
 
-    <div class="mySlides fade">
-        <img src="Images/anime2.webp">
-    </div>
-
-    <div class="mySlides fade">
-        <img src="Images/anime3.png" >
-    </div>
 
     <!-- Next and previous buttons -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
