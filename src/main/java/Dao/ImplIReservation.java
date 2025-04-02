@@ -44,4 +44,7 @@ public class ImplIReservation implements IReservation {
 
     }
 
+    public List<Reservation> getAllReservations() {
+        return em.createNativeQuery("select * from Reservation ").getResultList();
+    }
 }
