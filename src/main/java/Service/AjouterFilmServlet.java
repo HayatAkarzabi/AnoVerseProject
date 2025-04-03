@@ -36,7 +36,7 @@ public class AjouterFilmServlet extends HttpServlet {
                 return;
             }
 
-            Film film = new Film(title, genre, director, actors, writer, description, year, photo);
+            Film film = new Film(title, genre, year, actors, writer, description, director, photo);
 
             filmDao.AddFilm(film);
 

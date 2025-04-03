@@ -16,6 +16,7 @@ public class ImplFilm implements IFilm {
     public void AddFilm(Film film) {
         em.getTransaction().begin();
         em.persist(film);
+        em.getTransaction().commit();
 
     }
 
@@ -34,8 +35,15 @@ public class ImplFilm implements IFilm {
 
     @Override
     public Film getFilm(Long id) {
-       em.getTransaction().begin();
-       return em.find(Film.class, id);
+        em.getTransaction().begin(); // Démarrer la transaction
+        Film film = em.find(Film.class, id); // Rechercher le film
+
+        if (film == null) {
+            System.out.println("Film non trouvé pour l'ID : " + id);
+        }
+
+        em.getTransaction().commit(); // Valider la transaction
+        return film; // Retourner le film (ou null si non trouvé)
     }
 
     @Override

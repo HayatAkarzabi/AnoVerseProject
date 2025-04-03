@@ -27,6 +27,7 @@ public class Film implements Serializable {
     private String writer;
     private String description;
     private String imageUrl;
+
     public Film(String title,  String writer) {
         this.title = title;
         this.writer = writer;
@@ -112,13 +113,13 @@ public class Film implements Serializable {
         this.imageUrl = imageUrl;
     }
 
-    public Film(String title, String genre, String director, String actors, String writer, String description , int year, String imageUrl) {
+    public Film(String title, String genre, int year, String director, String actors, String writer, String description, String imageUrl) {
         this.title = title;
         this.genre = genre;
+        this.year = year;
         this.director = director;
         this.actors = actors;
         this.writer = writer;
-        this.year = year;
         this.description = description;
         this.imageUrl = imageUrl;
     }

@@ -10,10 +10,15 @@ import java.util.Date;
 public class Main {
     public static void main(String[] args) {
         IUser dao = new ImplUser();
-        IFilm film =  new ImplFilm();
+        ImplFilm film =  new ImplFilm();
 
-        dao.AddUser(new User("Imane@gmail.com","4444","admin"));
+        film.AddFilm(new Film("solo leveling","musuke",2019,"tensei","akatuski","musuke","description de notre film sololeveling","Images/sololeveling.jpg"));
+        film.AddFilm(new Film("Naruto","hotchinasazi",2003,"diector3","sasuke madara","writer2","nine tails monster ","Images/hunterXhunter.jpg"));
+        dao.AddUser(new User("nouhayousse@gmail.com","jjk7","admin"));
         dao.AddUser(new User("hayat@gmail.com","1234"));
+        dao.AddUser(new User("imane@gmail.com","12345"));
+        dao.AddUser(new User("layla@gmail.com","12346"));
+        dao.AddUser(new User("wissal@gmail.com","12347"));
 
 
     }

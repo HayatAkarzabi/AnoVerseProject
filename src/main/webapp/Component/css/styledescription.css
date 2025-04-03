@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background: #0d0d0d;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(255, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 0, 0, 0.5);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+}
+
+.info h1 {
+    font-size: 28px;
+    color: #ff0000;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 18px;
+    color: #e0e0e0;
+    margin: 5px 0;
+}
+
+.desc {
+    font-size: 19px;
+    color: #b0b0b0;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #fa2929;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background: black;
+    border: 2px solid #ff0000;
+    color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+    .card img {
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .info h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 19px;
+    }
+
+    .desc {
+        font-size: 17px;
+    }
+}
