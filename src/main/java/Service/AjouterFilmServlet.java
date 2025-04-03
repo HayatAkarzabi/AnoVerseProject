@@ -40,7 +40,7 @@ public class AjouterFilmServlet extends HttpServlet {
             String description = request.getParameter("description");
 
             Part filePart = request.getPart("bimg");
-            String fileName ="Images/"+Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            String fileName =Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
             String Images = getServletContext().getRealPath("") + File.separator + "Images";
 
             // Vérifier si le dossier "Images" existe, sinon le créer
@@ -54,14 +54,14 @@ public class AjouterFilmServlet extends HttpServlet {
             filePart.write(filePath);
 
             if (title == null || genre == null || director == null || actors == null || writer == null || description == null || fileName == null) {
-                response.sendRedirect("error.jsp?message=Veuillez remplir tous les champs !");
+                request.getSession().setAttribute("message", "Veuillez remplir tous les champs ! ");
                 System.out.println("Veuillez remplir tous les champs !");
                 return;
             }
 //                public Film(String title, String genre, int year, String director, String actors, String writer, String description, String imageUrl) {
 
 
-                Film film = new Film(title, genre, year, director, actors, writer, description, fileName);
+                Film film = new Film(title, genre, year, director, actors, writer, description, "Images/" +fileName);
 
             filmDao.AddFilm(film);
             request.getSession().setAttribute("message", "Film ajouté avec succès !");
