@@ -65,6 +65,21 @@ public class ImplFilm implements IFilm {
 
         em.getTransaction().commit(); // Valider la transaction
     }
+    public List<Film> getAllFilmsbygenre(String genre) {
+        List<Film> films = null;
+        try {
+            films = em.createQuery("SELECT f FROM Film f WHERE f.genre = :genre", Film.class)
+                    .setParameter("genre", genre)
+                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return films;
+    }
 
 
 

@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*, java.util.*" %>
+<%@ page import="Dao.ImplFilm" %>
+<%@ page import="Metier.Film" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -77,15 +79,24 @@
 <div class="container">
     <h3 class="text-center">New Films</h3>
     <div class="row">
-        <div class="card crd-ho">
+        <%
+            ImplFilm implFilm1 = new ImplFilm();
+            List<Film> filmsA = implFilm1.getAllFilmsbygenre("Action");
+            if (filmsA != null) {
+                for (Film filmA : filmsA) {
+        %>
+        <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-
-                <%-- la disponibilité de film --%>
-                <p>Disponible?</p>
-                <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
-                <p>Film name</p>
+                <img src="<%=filmA.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
+                <p><%=filmA.getTitle()%></p>
+                <a href="Description.jsp?id=<%=filmA.getId()%>">view more</a>
             </div>
         </div>
+        <%
+                }
+            }
+
+        %>
     </div>
 </div>
 <div class="text-center">
@@ -98,16 +109,25 @@
 <div class="container">
     <h3 class="text-center">Recent Films</h3>
     <div class="row">
+        <%
+            ImplFilm implFilm2 = new ImplFilm();
+            List<Film> filmsC =implFilm2.getAllFilmsbygenre("Child");
+         if(filmsC !=null){
+            for (Film filmC : filmsC) {
+
+            %>
         <div class="card crd-ho">
             <div class="card-body text-center">
-
-                <%-- la disponibilité de film --%>
-                <p>Disponible?</p>
-                <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
-                <p>Film name</p>
-
+                <img src="<%=filmC.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
+                <p><%=filmC.getTitle()%></p>
+                <a href="Description.jsp?id=<%=filmC.getId()%>">view more</a>
             </div>
         </div>
+
+        <%
+                }
+        }
+        %>
     </div>
 </div>
 <div class="text-center">
@@ -119,16 +139,25 @@
 <div class="container">
     <h3 class="text-center">Old Films</h3>
     <div class="row">
+        <%
+            ImplFilm implFilm3 = new ImplFilm();
+            List<Film> filmsF =implFilm2.getAllFilmsbygenre("Family");
+            if(filmsF !=null){
+                for (Film filmF : filmsF) {
+
+        %>
         <div class="card crd-ho">
             <div class="card-body text-center">
-
-                <%-- la disponibilité de film --%>
-                <p>Disponible?</p>
-                <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
-                <p>Film name</p>
-
+                <img src="<%=filmF.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
+                <p><%=filmF.getTitle()%></p>
+                <a href="Description.jsp?id=<%=filmF.getId()%>">view more</a>
             </div>
         </div>
+
+        <%
+                }
+            }
+        %>
     </div>
 </div>
 <div class="text-center">
