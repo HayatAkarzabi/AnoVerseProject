@@ -14,7 +14,7 @@
 <div class="container p-3">
     <div class="row align-items-center">
         <div class="col-md-6 text-center">  <!-- Ajout de col-md-6 -->
-            <img src="Images/logo.jpg" class="logo bounce">
+            <img src="Images/logo1.jpeg" class="logo bounce">
         </div>
         <div class="col-md-6 ">
             <div class="card ">

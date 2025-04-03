@@ -16,6 +16,13 @@
     <div class="mySlides fade">
         <img src="Images/perfectBlue.jpg" style="width:100%" >
     </div>
+    <div class="mySlides fade">
+        <img src="Images/home-img-3.png" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/home-img-2.png" style="width:100%" >
+    </div>
 
     <div class="mySlides fade">
         <img src="Images/sololeveling.jpg" style="width:100%" >

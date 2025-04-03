@@ -1,8 +1,8 @@
 body {
     position: relative;
-    background: url("b.jpg") no-repeat center center fixed;
+    background: url("logo2.jpeg") no-repeat center center fixed;
     background-size: cover;
-    color: #d4af37;
+    color: #E50914;
     font-family: Arial, sans-serif;
 }
 
@@ -18,14 +18,14 @@ body::before {
     z-index: -1; /* Place l'effet sous le contenu */
 }
 .navbar .logo{
-    width: 100px;
+    width: 200px;
     mix-blend-mode: screen;
 }
 .logo{
-    width: 400px;
-    height: auto;
+    width: 200px;
+    height: 70px;
     display: block;
-    filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.8));
+    filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
     border-radius: 20px;
 }
 .logo:hover {
@@ -33,12 +33,17 @@ body::before {
     transition: 0.3s;
 }
 .navbar{
-    background: black !important; /* Augmentez légèrement l'opacité */
-    backdrop-filter: blur(0px) saturate(200%); /* Augmentez l'intensité du flou */
-    -webkit-backdrop-filter: blur(20px) saturate(200%); /* Compatibilité Safari */
-    box-shadow: 0px 0px 30px rgba(277,228,237,0.37);
-    border: 2px solid rgba(255,255,255,0.18);
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: none;
 }
 .navbar .nav-item {
     transition: transform 0.3s ease, color 0.3s ease;
@@ -46,21 +51,34 @@ body::before {
 
 .navbar .nav-item:hover {
     transform: scale(1.1); /* Agrandit l'élément de 10% */
-    color: darkgoldenrod; /* Change la couleur en or */
+    color: #fa2929; /* Change la couleur en or */
 }
 
 .navbar .nav-item:hover .nav-link {
-    color: goldenrod !important; /* Assure que le lien change de couleur */
-    transform: scale(1.1); /* Agrandit le lien */
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8); /* Ajoute un effet d'éclat */
+    color: #ffffff;
+    background: #E50914;
+}
+.navbar .nav-item a.active{
+    color: #ffffff;
+    background: #E50914;
 }
 .nav-link{
-    color: gray !important;
+
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 1.1rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color: #ffffff  !important;
 }
 .text-custom{
-    color: goldenrod;
+    color: #ffffff  !important;
 }
 
+.navbar-nav  .mr-auto{
+    justify-content: space-between;
+    align-items: center;
+}
 
 .slideshow-container {
     position: relative;
@@ -171,7 +189,7 @@ body::before {
     display: flex;
     cursor: pointer;
     padding: 10px 20px;
-    background: #070606;
+    background: #e50914;
     border-radius: 30px;
     align-items: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
@@ -179,7 +197,7 @@ body::before {
 }
 /*pour la barre de recherche*/
 .box input {
-    color: #aa8400;
+    color: #ffffff;
     width: 0;
     outline: none;
     font-weight: 500;
@@ -190,7 +208,7 @@ body::before {
 
 .box input:focus {
     width: 200px;
-    filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.8));
+    filter: drop-shadow(0px 0px 10px rgb(229, 9, 20));
 }
 
 .box:hover input {
@@ -198,25 +216,30 @@ body::before {
 }
 
 .box a .fas {
-    color: goldenrod;
-    font-size: 18px;
+    color: #ffffff;
+    font-size: 1.2rem;
+
+
+
 }
 
 .box input:focus + a .fas {
-    filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.8));
+    filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
 }
 .collapse .col-md-3 .btn{
-    background-color: #1a1a1a;
-    color:gold;
+    background-color: #e50914;
+    color: #ffffff;
     border-radius: 20px;
+    font-size: 18px;
 }
 
 .card {
-    background-color: #1a1a1a; /* Fond noir */
-    color: goldenrod; /* Texte doré */
-    border: 2px solid goldenrod; /* Bordure dorée */
+    top: 80px;
+    background-color: #000000; /* Fond noir */
+    color: #ffffff; /* Texte doré */
+    border: 2px solid #e50914; /* Bordure dorée */
     border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); /* Ombre dorée */
+    box-shadow: 0 0 15px rgb(229, 9, 20); /* Ombre dorée */
     max-width: 500px; /* Largeur maximale */
 }
 
@@ -230,7 +253,7 @@ body::before {
 }
 
 .form-group label {
-    color: goldenrod; /* Labels en doré */
+    color: #e50914; /* Labels en doré */
     display: block; /* Label sur toute la largeur */
     margin-bottom: 5px; /* Espace sous le label */
     text-align: center; /* Centre les labels */
