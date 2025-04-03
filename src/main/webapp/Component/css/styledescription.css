@@ -1,106 +1,116 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&display=swap');
-
-body {
-    font-family: 'Oswald', sans-serif;
-    background: #0d0d0d;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    width: 100%;
+/* Appliquer le style uniquement à la section description-container */
+.description-container {
     max-width: 900px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(255, 0, 0, 0.2);
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
+    margin: 0 auto;
     padding: 20px;
-    border: 2px solid rgba(255, 0, 0, 0.5);
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.card img {
-    width: 100%;
-    max-width: 550px;
+    background-color: #000;
+    color: #fff;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
 }
 
-.card img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+/* Image en plein écran */
+.image-container {
+    width: 100%;
+    text-align: center;
 }
 
-.info h1 {
-    font-size: 28px;
-    color: #ff0000;
+.film-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid red;
+}
+
+/* Détails du film */
+.film-details {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.film-info h1 {
+    color: red;
+    font-size: 4em;
     margin-bottom: 10px;
-    text-transform: uppercase;
+    font-family: "Agency FB";
 }
 
-p {
-    font-size: 18px;
-    color: #e0e0e0;
-    margin: 5px 0;
-}
-
-.desc {
-    font-size: 19px;
-    color: #b0b0b0;
-    margin-top: 15px;
+.film-info p {
+    font-size: 1.1em;
     line-height: 1.5;
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #fa2929;
+/* Boutons */
+.film-buttons {
+    margin-top: 20px;
+}
+
+.watch-button, .favorite-button {
+    background-color: red;
     color: white;
-    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
     border-radius: 5px;
-    margin-top: 15px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: all 0.3s ease-in-out;
-    border: 2px solid transparent;
 }
 
-.btn:hover {
-    background: black;
-    border: 2px solid #ff0000;
-    color: #ff0000;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+.watch-button:hover, .favorite-button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
 }
 
-@media (max-width: 768px) {
-    .card img {
-        max-width: 100%;
-    }
+/* Section des commentaires */
+.comments-section {
+    margin-top: 40px;
+    padding: 15px;
+    background-color: #111;
+    border-radius: 10px;
+}
 
-    .container {
-        padding: 15px;
-    }
+.comments-section h2 {
+    color: red;
+}
 
-    .info h1 {
-        font-size: 24px;
-    }
+.comment {
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #222;
+    border-left: 3px solid red;
+    border-radius: 5px;
+}
 
-    p {
-        font-size: 19px;
-    }
+.comment-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
 
-    .desc {
-        font-size: 17px;
-    }
+.comment-form textarea {
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+}
+
+.comment-form button {
+    margin-top: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.comment-form button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
 }

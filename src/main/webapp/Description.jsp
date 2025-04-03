@@ -27,6 +27,7 @@
 <head>
   <title>${film.title}</title>
   <%@include file="Component/CSS.jsp" %>
+  <link rel="stylesheet" href="Component/css/styledescription.css">
 
 </head>
 <body>
@@ -47,6 +48,9 @@
     </div>
   </div>
 </div>--%>
+
+<main>
+
 <div class="description-container">
   <!-- Image en plein écran -->
   <div class="image-container">
@@ -57,12 +61,16 @@
   <div class="film-details">
     <div class="film-info">
       <h1>${film.title}</h1>
-      <p>${film.description}</p>
-      <p><strong>Annee :</strong> ${film.year} </p>
+
+
+      <p><strong>Année :</strong> ${film.year} </p>
       <p><strong>Genre :</strong> ${film.genre}</p>
+      <p><strong>Acteurs:</strong> ${film.actors}</p>
+      <p><strong>Scénariste :</strong> ${film.writer} </p>
+      <p>${film.description}</p>
     </div>
     <div class="film-buttons">
-      <button class="watch-button">Regarder</button>
+      <a href="reservation?filmId=${film.id}" class="watch-button">🎟 Réserver</a>
       <button class="favorite-button">Ajouter aux Favoris</button>
     </div>
   </div>
@@ -85,7 +93,7 @@
     </form>
   </div>
 </div>
-
+</main>
 
 </body>
 </html>

@@ -1,9 +1,6 @@
 package Metier;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +22,7 @@ public class Film implements Serializable {
     private String director;
     private String actors;
     private String writer;
+    @Column(length = 1000)
     private String description;
     private String imageUrl;
 
