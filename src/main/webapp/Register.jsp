@@ -20,6 +20,12 @@
                 <div class="card-body">
                     <form action="Register" method="post">
                         <h3 class="text-center">Registration Page</h3>
+                        <% String error = (String) request.getAttribute("error"); %>
+                        <% if (error != null) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <%= error %>
+                        </div>
+                        <% } %>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

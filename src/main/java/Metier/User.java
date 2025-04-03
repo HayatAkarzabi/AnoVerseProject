@@ -53,7 +53,7 @@ public class User implements Serializable {
     }
     public User( String email, String motDePasse){
         this.email=email;
-        this.motDePasse=motDePasse;
+        this.motDePasse = BCrypt.hashpw(motDePasse, BCrypt.gensalt());
     }
 
     public String getEmail() {
@@ -62,7 +62,7 @@ public class User implements Serializable {
 
     public User(String emil, String MotDePasse, String role){
         this.email=emil;
-        this.motDePasse=MotDePasse;
+        this.motDePasse = BCrypt.hashpw(MotDePasse, BCrypt.gensalt());
         this.role=role;
     }
 
