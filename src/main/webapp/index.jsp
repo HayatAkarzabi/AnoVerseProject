@@ -89,7 +89,7 @@
             <div class="card-body text-center">
                 <img src="<%=filmA.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
                 <p><%=filmA.getTitle()%></p>
-                <a href="Description.jsp?id=<%=filmA.getId()%>">view more</a>
+                <a href="description?Id=<%=filmA.getId()%>">view more</a>
             </div>
         </div>
         <%
@@ -120,7 +120,7 @@
             <div class="card-body text-center">
                 <img src="<%=filmC.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
                 <p><%=filmC.getTitle()%></p>
-                <a href="Description.jsp?id=<%=filmC.getId()%>">view more</a>
+                <a href="description?Id=<%=filmC.getId()%>">view more</a>
             </div>
         </div>
 
@@ -150,7 +150,7 @@
             <div class="card-body text-center">
                 <img src="<%=filmF.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
                 <p><%=filmF.getTitle()%></p>
-                <a href="Description.jsp?id=<%=filmF.getId()%>">view more</a>
+                <a href="description?Id=<%=filmF.getId()%>">view more</a>
             </div>
         </div>
 

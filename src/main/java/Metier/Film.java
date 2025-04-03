@@ -18,7 +18,7 @@ import java.io.Serializable;
 @ToString
 public class Film implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String title;
     private String genre;
     private int year;
@@ -49,7 +49,7 @@ public class Film implements Serializable {
         this.genre = genre;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -83,7 +83,7 @@ public class Film implements Serializable {
         return genre;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
