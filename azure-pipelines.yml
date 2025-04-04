@@ -1,26 +1,21 @@
-# Trigger: run the pipeline when code is pushed to the 'main' branch
 trigger:
-  branches:
-    include:
-      - main  # Remplace par la branche que tu veux utiliser
+- main
 
-# Utilisation de l'agent AniverseAgent que tu as configuré
 pool:
-  name: 'AniVerseAgent'  # Le nom de l'agent pool où se trouve ton agent AniVerseAgent
-  demands:
-    - agent.name == AniverseAgent  # Spécifie le nom de l'agent que tu veux utiliser
+  name: default  # Utilisation du pool par défaut
 
-# Etapes de la pipeline
+demands:
+  - maven  # Vérifie que Maven est installé
+  - Agent.Version -gtVersion 2.163.1  # Vérifie la version de l'agent
+
 steps:
-  - task: Maven@3  # Utilisation de Maven pour construire le projet Java
-    inputs:
-      mavenPomFile: 'pom.xml'  # Le chemin vers ton fichier POM Maven
-      mavenOptions: '-Xmx3072m'  # Paramètres pour augmenter la mémoire JVM
-      javaHomeOption: 'JDKVersion'  # Spécifie la version de Java
-      jdkVersionOption: '1.11'  # Utilisation de Java 11
-      jdkArchitectureOption: 'x64'  # Architecture 64-bit
-      publishJUnitResults: true  # Publier les résultats des tests JUnit
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'  # Emplacement des fichiers de résultats de tests
-      goals: 'package'  # Maven Goal, ici "package" pour créer le fichier JAR ou WAR
-
-  # Ajouter des étapes supplémentaires selon tes besoins, comme le déploiement ou la gestion des artefacts
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
