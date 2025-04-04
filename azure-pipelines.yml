@@ -1,22 +1,26 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
+# Trigger: run the pipeline when code is pushed to the 'main' branch
 trigger:
-- main
+  branches:
+    include:
+      - main  # Remplace par la branche que tu veux utiliser
 
+# Utilisation de l'agent AniverseAgent que tu as configuré
 pool:
-  vmImage: ubuntu-latest
+  name: 'AniVerseAgent'  # Le nom de l'agent pool où se trouve ton agent AniVerseAgent
+  demands:
+    - agent.name == AniverseAgent  # Spécifie le nom de l'agent que tu veux utiliser
 
+# Etapes de la pipeline
 steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+  - task: Maven@3  # Utilisation de Maven pour construire le projet Java
+    inputs:
+      mavenPomFile: 'pom.xml'  # Le chemin vers ton fichier POM Maven
+      mavenOptions: '-Xmx3072m'  # Paramètres pour augmenter la mémoire JVM
+      javaHomeOption: 'JDKVersion'  # Spécifie la version de Java
+      jdkVersionOption: '1.11'  # Utilisation de Java 11
+      jdkArchitectureOption: 'x64'  # Architecture 64-bit
+      publishJUnitResults: true  # Publier les résultats des tests JUnit
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'  # Emplacement des fichiers de résultats de tests
+      goals: 'package'  # Maven Goal, ici "package" pour créer le fichier JAR ou WAR
+
+  # Ajouter des étapes supplémentaires selon tes besoins, comme le déploiement ou la gestion des artefacts
