@@ -8,7 +8,7 @@ trigger:
 pool:
   name: 'AniVerseAgent'  # Le nom de l'agent pool où se trouve ton agent AniVerseAgent
   demands:
-    - agent.name == AniverseAgent  # Spécifie le nom de l'agent que tu veux utiliser
+    - agent.name -equals AniverseAgent  # Demande de l'agent AniVerseAgent
 
 # Etapes de la pipeline
 steps:
