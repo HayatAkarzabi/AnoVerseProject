@@ -44,7 +44,7 @@ public class RegistrationServlet extends HttpServlet {
 
         // Créer un nouvel utilisateur
         try {
-            User newUser = new User(email, motDePasse);
+            User newUser = new User(email, motDePasse,"client");
 
             // Utiliser la méthode AddUser de ImplUser pour ajouter l'utilisateur à la base de données
             userDao.AddUser(newUser);

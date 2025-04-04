@@ -14,13 +14,13 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-@WebServlet("/ajouterFilm")
+@WebServlet("/modifierFilm")
 @MultipartConfig( // Active le support des fichiers
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB avant d'écrire sur disque
         maxFileSize = 1024 * 1024 * 10,      // 10MB pour un fichier
         maxRequestSize = 1024 * 1024 * 50    // 50MB pour la requête complète
 )
-public class AjouterFilmServlet extends HttpServlet {
+public class ModifierFilmServlet extends HttpServlet {
     private ImplFilm filmDao;
 
     @Override
@@ -31,6 +31,7 @@ public class AjouterFilmServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            Long id = Long.parseLong(request.getParameter("id"));
             String title = request.getParameter("title");
             String genre = request.getParameter("genre");
             int year = Integer.parseInt(request.getParameter("year"));
@@ -39,42 +40,45 @@ public class AjouterFilmServlet extends HttpServlet {
             String writer = request.getParameter("writer");
             String description = request.getParameter("description");
 
-            Part filePart = request.getPart("bimg");
-            String fileName =Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-            String Images = getServletContext().getRealPath("") + File.separator + "Images";
+            String oldImage = request.getParameter("oldImage");
 
-            // Vérifier si le dossier "Images" existe, sinon le créer
-            File ImagesDir = new File(Images);
-            if (!ImagesDir.exists()) {
-                ImagesDir.mkdir();
+            Part filePart = request.getPart("bimg");
+            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            String uploadPath = getServletContext().getRealPath("") + File.separator + "uploads";
+
+            // Vérifier si le dossier "uploads" existe, sinon le créer
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdir();
             }
 
             // Enregistrer le fichier sur le serveur
-            String filePath = Images + File.separator + fileName;
-            filePart.write(filePath);
+            if(fileName != null && !fileName.isEmpty()){
+                String filePath = uploadPath + File.separator + fileName;
+                filePart.write(filePath);
+            }else {
+                fileName = oldImage;
+            }
 
             if (title == null || genre == null || director == null || actors == null || writer == null || description == null || fileName == null) {
-                request.getSession().setAttribute("message", "Veuillez remplir tous les champs ! ");
+                request.getSession().setAttribute("message", "Erreur lors de la modification du film !(Veuillez remplir tous les champs !) ");
+                response.sendRedirect(request.getContextPath() + "/admin/DetailFilm.jsp");
+
                 System.out.println("Veuillez remplir tous les champs !");
                 return;
             }
-//                public Film(String title, String genre, int year, String director, String actors, String writer, String description, String imageUrl) {
+
+            Film film = new Film(id,title, genre, year, director, actors, writer, description, fileName);
+
+            filmDao.UpdateFilm(film);
+            request.getSession().setAttribute("message", "Film modifie avec succès !");
+            response.sendRedirect(request.getContextPath() + "/admin/DetailFilm.jsp?id=" + film.getId());
 
 
-                Film film = new Film(title, genre, year, director, actors, writer, description, "Images/" +fileName);
-
-            filmDao.AddFilm(film);
-            request.getSession().setAttribute("message", "Film ajouté avec succès !");
-            response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
-
-            // Rediriger vers la page principale
         } catch (Exception e) {
             e.printStackTrace();
-            request.getSession().setAttribute("message", "Erreur lors de l'ajout du film !");
+            request.getSession().setAttribute("message", "Erreur lors de la modification du film !");
             response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
-
-
-
         }
     }
 }
