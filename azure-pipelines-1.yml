@@ -1,0 +1,19 @@
+trigger:
+- main  # Déclenche le pipeline sur chaque modification de la branche main
+
+pool:
+  name: default  # Agent pool par défaut
+  demands:
+    - agent.name -equals DESKTOP-2VMFIGQ  # Nom de l'agent que tu as configuré
+
+steps:
+- task: Maven@3  # Utilise Maven pour construire le projet
+  inputs:
+    mavenPomFile: 'pom.xml'  # Le fichier pom.xml qui contient la configuration Maven
+    mavenOptions: '-Xmx3072m'  # Option pour allouer de la mémoire
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'  # Version de JDK que tu utilises
+    jdkArchitectureOption: 'x64'  # Architecture de ton JDK
+    publishJUnitResults: true  # Publier les résultats des tests JUnit
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'  # Emplacement des résultats des tests
+    goals: 'package'  # Goal Maven pour emballer le projet en JAR ou WAR
