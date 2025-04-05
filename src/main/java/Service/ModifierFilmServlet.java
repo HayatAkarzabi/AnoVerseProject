@@ -44,7 +44,7 @@ public class ModifierFilmServlet extends HttpServlet {
 
             Part filePart = request.getPart("bimg");
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-            String uploadPath = getServletContext().getRealPath("") + File.separator + "uploads";
+            String uploadPath = getServletContext().getRealPath("") + File.separator + "Images";
 
             // Vérifier si le dossier "uploads" existe, sinon le créer
             File uploadDir = new File(uploadPath);
@@ -68,7 +68,7 @@ public class ModifierFilmServlet extends HttpServlet {
                 return;
             }
 
-            Film film = new Film(id,title, genre, year, director, actors, writer, description, fileName);
+            Film film = new Film(id,title, genre, year, director, actors, writer, description, "/Images"+fileName);
 
             filmDao.UpdateFilm(film);
             request.getSession().setAttribute("message", "Film modifie avec succès !");

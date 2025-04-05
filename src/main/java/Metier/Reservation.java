@@ -34,6 +34,6 @@ public class Reservation  implements Serializable {
         this.dateReservation = dateReservation;
         this.nmbr_places = nmbr_places;
         this.seance = seance;
-        SerializationManager.SérialiserObjet(this,"Serialisation.ser");
+//        SerializationManager.SérialiserObjet(this,"Serialisation.ser");
     }
 }

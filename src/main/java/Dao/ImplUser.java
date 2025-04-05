@@ -5,6 +5,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.util.List;
+
 public class ImplUser implements IUser {
     private EntityManager em ;
     public ImplUser() {
@@ -21,16 +23,16 @@ public class ImplUser implements IUser {
     }
 
     @Override
-    public void UpdateUser(int id) {
+    public void UpdateUser(User user) {
         em.getTransaction().begin();
-        em.merge(em.find(User.class, id));
+        em.merge(user);
         em.getTransaction().commit();
 
 
     }
 
     @Override
-    public void DeleteUser(int id) {
+    public void DeleteUser(Long id) {
         em.getTransaction().begin();
         em.remove(em.find(User.class, id));
         em.getTransaction().commit();
@@ -50,7 +52,18 @@ public class ImplUser implements IUser {
             return null; // Retourne null si l'utilisateur n'est pas trouvé
         }
     }
-
+    public User findUserById(Long id) {
+        try {
+            em.getTransaction().begin();
+            return em.find(User.class, id);
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public List<User> getAllUsers() {
+        return em.createQuery("SELECT u FROM User u", User.class).getResultList();
+    }
 
 
 

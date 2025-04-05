@@ -32,9 +32,29 @@ public class ImplISalle implements ISalle {
         return null;
 
     }
-    public List<Salle> afficherListSalle(){
-        return em.createNativeQuery("select * from Salle").getResultList();
+    public List<Salle> afficherListSalle() {
+        return em.createQuery("SELECT s FROM Salle s", Salle.class).getResultList();
+    }
 
+    public void modifierSalle(Salle salle) {
+        try {
+            em.getTransaction().begin();
+            em.merge(salle);
+            em.getTransaction().commit();
+        }catch(Exception e){
+            em.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+    public void supprimerSalle(Long id) {
+        try {
+            em.getTransaction().begin();
+            em.remove(em.find(Salle.class, id));
+            em.getTransaction().commit();
+        }catch(Exception e){
+            em.getTransaction().rollback();
+            e.printStackTrace();
+        }
     }
 
 }

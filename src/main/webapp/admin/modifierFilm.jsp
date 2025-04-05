@@ -111,6 +111,10 @@
         </div>
     </div>
 </div>
-
+<div class="mt-3">
+    <a href="../admin/DetailFilm.jsp" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Retour
+    </a>
+</div>
 </body>
 </html>

@@ -27,6 +27,7 @@ public class ImplISeance implements ISeance {
         try{
             Seance S=em.find(Seance.class, id);
             em.remove(S);
+            em.getTransaction().commit();
         }catch(Exception e){
             em.getTransaction().rollback();
         }
@@ -44,6 +45,15 @@ public class ImplISeance implements ISeance {
             em.getTransaction().rollback(); // Afficher l'erreur pour comprendre le problème
         }
         return S;
+    }
+    public void modifierSeance(Seance S) {
+        em.getTransaction().begin();
+        try {
+            em.merge(S);
+            em.getTransaction().commit();
+        }catch(Exception e){
+            em.getTransaction().rollback();
+        }
     }
 
 

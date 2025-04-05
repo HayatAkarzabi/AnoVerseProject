@@ -2,6 +2,7 @@ package Metier;
 
 import Utils.SerializationManager;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,11 +51,16 @@ public class User implements Serializable {
         this.role = (role == null || role.isEmpty()) ? "client" : role;
         this.reservations = new ArrayList<>();
         this.notifications = new ArrayList<>();
-        SerializationManager.SérialiserObjet(this, "Serialisation.ser");
+//        SerializationManager.SérialiserObjet(this, "Serialisation.ser");
     }
     public User( String email, String motDePasse){
         this.email=email;
         this.motDePasse = BCrypt.hashpw(motDePasse, BCrypt.gensalt());
+    }
+    public User( Long id ,String email, String motDePasse,String role){
+        this.email=email;
+        this.motDePasse = BCrypt.hashpw(motDePasse, BCrypt.gensalt());
+        this.role=role;
     }
 
     public String getEmail() {
@@ -65,6 +72,7 @@ public class User implements Serializable {
         this.motDePasse = BCrypt.hashpw(MotDePasse, BCrypt.gensalt());
         this.role=role;
     }
+    public Long getId() {return id;}
 
     public String getMotDePasse() {
         return motDePasse;

@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="text-center">Add Anime</h3>
-                    <form action="../ajouterFilm" method="post" enctype="multipart/form-data">
+                    <form action="../ajouterFilm" method="post">
                         <div class="form-group">
                             <input type="text" id="title" name="title" class="form-control" placeholder="Titre :" required>
                         </div>

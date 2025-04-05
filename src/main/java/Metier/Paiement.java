@@ -35,6 +35,6 @@ public class Paiement  implements Serializable {
         this.montant = montant;
         this.méthode = méthode;
         this.reservation = reservation;
-        SerializationManager.SérialiserObjet(this,"Serialisation.ser");
+//        SerializationManager.SérialiserObjet(this,"Serialisation.ser");
     }
 }

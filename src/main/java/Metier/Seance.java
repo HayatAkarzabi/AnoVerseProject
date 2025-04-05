@@ -19,7 +19,7 @@ import java.util.List;
 @Data
 @ToString
 
-public class Seance implements Serializable {
+public class Seance /*implements Serializable*/ {
 
 
     @Id
@@ -27,19 +27,19 @@ public class Seance implements Serializable {
 
     private Long id;
     private LocalDateTime date ;
-    private String versionFilm;
     @OneToMany
     List<Reservation> reservations;
     @ManyToOne
     private Salle salle;
     @ManyToOne
     private Film film;
-    public Seance(LocalDateTime date, Long id,Film film, List<Reservation> reservations, String versionFilm) throws IOException {
+
+    public Seance(LocalDateTime date, Long id,Film film,Salle salle) throws IOException {
         this.date = date;
         this.id = id;
         this.reservations = new ArrayList<>();
-        this.versionFilm = versionFilm;
         this.film = film;
-        SerializationManager.SérialiserObjet(this,"Serialisation.ser");
+        this.salle = salle;
+//        SerializationManager.SérialiserObjet(this,"Serialisation.ser");
     }
 }
