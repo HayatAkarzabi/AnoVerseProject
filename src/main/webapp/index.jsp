@@ -77,7 +77,7 @@
 </div>
 
 <div class="container">
-    <h3 class="text-center">New Films</h3>
+    <h3 class="text-center">Action</h3>
     <div class="row">
         <%
             ImplFilm implFilm1 = new ImplFilm();
@@ -87,7 +87,7 @@
         %>
         <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-                <img src="<%=filmA.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
+                <img src="<%=filmA.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
                 <p><%=filmA.getTitle()%></p>
                 <a href="description?Id=<%=filmA.getId()%>">view more</a>
             </div>
@@ -107,7 +107,7 @@
 
 
 <div class="container">
-    <h3 class="text-center">Recent Films</h3>
+    <h3 class="text-center">Child</h3>
     <div class="row">
         <%
             ImplFilm implFilm2 = new ImplFilm();
@@ -116,9 +116,9 @@
             for (Film filmC : filmsC) {
 
             %>
-        <div class="card crd-ho">
+        <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-                <img src="<%=filmC.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
+                <img src="<%=filmC.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
                 <p><%=filmC.getTitle()%></p>
                 <a href="description?Id=<%=filmC.getId()%>">view more</a>
             </div>
@@ -137,7 +137,7 @@
 
 
 <div class="container">
-    <h3 class="text-center">Old Films</h3>
+    <h3 class="text-center">Family</h3>
     <div class="row">
         <%
             ImplFilm implFilm3 = new ImplFilm();
@@ -146,9 +146,9 @@
                 for (Film filmF : filmsF) {
 
         %>
-        <div class="card crd-ho">
+        <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-                <img src="<%=filmF.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
+                <img src="<%=filmF.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
                 <p><%=filmF.getTitle()%></p>
                 <a href="description?Id=<%=filmF.getId()%>">view more</a>
             </div>

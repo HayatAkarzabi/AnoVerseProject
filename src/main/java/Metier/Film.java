@@ -25,8 +25,42 @@ public class Film implements Serializable {
     @Column(length = 1000)
     private String description;
     private String imageUrl;
+    private String imageUrl_home;
 
-    public Film(String title,  String writer) {
+    public Film(Long id, String title, String genre, int year, String director, String actors, String writer, String description, String fileName) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.year = year;
+        this.director = director;
+        this.actors = actors;
+        this.writer = writer;
+        this.description = description;
+        this.imageUrl = fileName;
+
+    }
+
+    public String getImageUrl_home() {
+        return imageUrl_home;
+    }
+
+    public void setImageUrl_home(String imageUrl_home) {
+        this.imageUrl_home = imageUrl_home;
+    }
+
+    public Film(String title, String genre, int year, String director, String actors, String writer, String description, String imageUrl, String imageUrl_home) {
+        this.title = title;
+        this.genre = genre;
+        this.year = year;
+        this.director = director;
+        this.actors = actors;
+        this.writer = writer;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.imageUrl_home = imageUrl_home;
+    }
+
+    public Film(String title, String writer) {
         this.title = title;
         this.writer = writer;
     }
@@ -37,10 +71,6 @@ public class Film implements Serializable {
 
     public void setDirector(String director) {
         this.director = director;
-    }
-
-    public void setDiscription(String discription) {
-        description = description;
     }
 
     public void setGenre(String genre) {

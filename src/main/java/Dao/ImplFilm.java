@@ -74,7 +74,7 @@ public class ImplFilm implements IFilm {
                     .getResultList();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
+
             if (em != null) {
                 em.close();
             }

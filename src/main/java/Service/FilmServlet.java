@@ -48,7 +48,7 @@ public class FilmServlet extends HttpServlet {
             if (request.getParameter("director") != null) film.setDirector(request.getParameter("director"));
             if (request.getParameter("actors") != null) film.setActors(request.getParameter("actors"));
             if (request.getParameter("writer") != null) film.setWriter(request.getParameter("writer"));
-            if (request.getParameter("description") != null) film.setDiscription(request.getParameter("description"));
+            if (request.getParameter("description") != null) film.setDescription(request.getParameter("description"));
             if (request.getParameter("photo") != null) film.setImageUrl(request.getParameter("photo"));
 
             filmDao.UpdateFilm(film);

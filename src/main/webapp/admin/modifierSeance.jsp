@@ -217,7 +217,7 @@
                         %>
                         <div class="col-12">
                             <div class="alert alert-warning" role="alert">
-                                Aucune salle n'est disponible. <a href="ajouterSalle.jsp" class="alert-link">Ajouter une salle</a>
+                                Aucune salle n'est disponible. <a href="addSalle.jsp" class="alert-link">Ajouter une salle</a>
                             </div>
                         </div>
                         <% } %>
