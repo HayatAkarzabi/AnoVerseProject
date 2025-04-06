@@ -175,9 +175,9 @@
                                     <td><div><%=reservation.getUser().getEmail()%></div></td>
                                     <td><div>ID: <%=reservation.getSeance().getId()%></div></td>
                                     <td>
-                                        <fmt:formatDate value="<%=reservation.getDateReservation()%>" pattern="dd/MM/yyyy HH:mm" />
+                                        <%= new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm").format(reservation.getDateReservation()) %>
                                     </td>
-                                    <td><%=reservation.getNmbr_places()%></td>
+                                    <td><%=reservation.getNombrePlaces()%></td>
                                     <td>
                                             <span class="badge bg-success badge-payment">
                                                 <%=reservation.getPaiement().getMéthode()%>
