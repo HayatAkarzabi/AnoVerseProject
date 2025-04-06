@@ -12,12 +12,12 @@
                 <a class="nav-link active" href="index.jsp"><i class="fa-solid fa-house"></i> Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/home.jsp"> Action</a>
+                <a class="nav-link" href="#Action"> Action</a>
             </li><li class="nav-item">
-            <a class="nav-link" href="#"> Child</a>
+            <a class="nav-link" href="#Drama"> Drama</a>
         </li>
             <li class="nav-item">
-                <a class="nav-link " href="#"> Family</a>
+                <a class="nav-link " href="#Family"> Family</a>
             </li>
         </ul>
         <div class="d-flex justify-content-center">

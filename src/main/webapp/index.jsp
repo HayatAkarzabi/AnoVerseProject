@@ -77,7 +77,7 @@
 </div>
 
 <div class="container">
-    <h3 class="text-center">Action</h3>
+    <h3 class="text-center" id="Action">Action</h3>
     <div class="row">
         <%
             ImplFilm implFilm1 = new ImplFilm();
@@ -104,7 +104,7 @@
 
 
 <div class="container">
-    <h3 class="text-center">Drama</h3>
+    <h3 class="text-center" id="Drama">Drama</h3>
     <div class="row">
         <%
             ImplFilm implFilm2 = new ImplFilm();
@@ -131,7 +131,7 @@
 
 
 <div class="container">
-    <h3 class="text-center">Family</h3>
+    <h3 class="text-center" id="Family">Family</h3>
     <div class="row">
         <%
             ImplFilm implFilm3 = new ImplFilm();
