@@ -71,12 +71,12 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#" id="all-animes"><i class="fa-solid fa-video "></i>gestion Animes</a></li>
-                <li><a href="#" id="reservations"><i class="fa-solid fa-ticket "></i>gestion Reservations</a></li>
-                <li><a href="#" id="sales"><i class="fa-solid fa-person-shelter"></i>gestion Salles</a></li>
-                <li><a href="#" id="add-user"><i class="fa-solid fa-users"></i>gestion users</a></li>
-                <li><a href="#" id="paiments"><i class="fa-solid fa-money-bill"></i>paiments</a></li>
-                <li><a href="#" id="seances"><i class="fa-solid fa-tv"></i>gestion seances</a></li>
+                <li><a href="#" id="all-animes"><i class="fa-solid fa-video "></i>Gestion Fimles</a></li>
+                <li><a href="#" id="reservations"><i class="fa-solid fa-ticket "></i>Gestion Reservations</a></li>
+                <li><a href="#" id="sales"><i class="fa-solid fa-person-shelter"></i>Gestion Salles</a></li>
+                <li><a href="#" id="add-user"><i class="fa-solid fa-users"></i>Gestion users</a></li>
+                <li><a href="#" id="paiments"><i class="fa-solid fa-money-bill"></i>Paiements</a></li>
+                <li><a href="#" id="seances"><i class="fa-solid fa-tv"></i>Gestion seances</a></li>
                 <li><a href="../index.jsp" id="logout"> <i class="fa-solid fa-arrow-right-to-bracket "></i> Log Out</a></li>
 
             </ul>
@@ -296,7 +296,7 @@
         </div>
 
     </div>
-    <!-- ajouter un utilisateur ou un film -->
+    <!-- ajouter un utilisateur  -->
     <div id="add-user-content" class="content-box">
         <div class="container-fluid mb-3">
             <div class="row align-items-center">
@@ -350,7 +350,7 @@
 
 
     <div id="paiments-content" class="content-box">
-        <h2 class="text-center">paiments</h2>
+        <h2 class="text-center">Paiements</h2>
         <table border="2">
         <tr>
             <th>ID</th>

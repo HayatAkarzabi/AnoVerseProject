@@ -17,7 +17,7 @@
         <div class="col-md-6 offset-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="text-center">Add Anime</h3>
+                    <h3 class="text-center">Add Film</h3>
                     <form action="../ajouterFilm" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="text" id="title" name="title" class="form-control" placeholder="Titre :" required>

@@ -98,10 +98,7 @@
 
         %>
     </div>
-</div>
-<div class="text-center">
-    <a href="" class="btn btn-danger btn-sm">View All</a>
-</div>
+</div><br><br><br>
 <hr width="50%" size="3" color="#000" noshade align="center">
 
 
@@ -116,7 +113,7 @@
             for (Film filmC : filmsC) {
 
             %>
-        <div class="card crd-ho">
+        <div class="card crd-ho mx-2">
             <div class="card-body text-center">
                 <img src="<%=filmC.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
                 <p><%=filmC.getTitle()%></p>
@@ -129,10 +126,7 @@
         }
         %>
     </div>
-</div>
-<div class="text-center">
-    <a href="" class="btn btn-danger btn-sm">View All</a>
-</div>
+</div><br><br><br>
 <hr width="50%" size="3" color="#000" noshade align="center">
 
 
@@ -141,12 +135,12 @@
     <div class="row">
         <%
             ImplFilm implFilm3 = new ImplFilm();
-            List<Film> filmsF =implFilm2.getAllFilmsbygenre("Family");
+            List<Film> filmsF =implFilm3.getAllFilmsbygenre("Family");
             if(filmsF !=null){
                 for (Film filmF : filmsF) {
 
         %>
-        <div class="card crd-ho">
+        <div class="card crd-ho mx-2">
             <div class="card-body text-center">
                 <img src="<%=filmF.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
                 <p><%=filmF.getTitle()%></p>
@@ -159,10 +153,7 @@
             }
         %>
     </div>
-</div>
-<div class="text-center">
-    <a href="" class="btn btn-danger btn-sm">View All</a>
-</div>
+</div><br><br><br>
 <%@include file="Component/footer.jsp"%>
 <script>
     let slideIndex = 0;

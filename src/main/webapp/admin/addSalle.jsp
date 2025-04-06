@@ -17,14 +17,15 @@
       <div class="col-md-6 offset-md-4">
         <div class="card">
           <div class="card-body">
+            <h2 class="text-center">Add Salle</h2>
             <form action="../addSalle" method="post">
-              <div class="form-control">
+              <div class="form-group">
                 <label for="Numero">Numero de la salle</label>
-                <input type="text" name="numero" id="Numero" placeholder="Numero de la salle" required>
+                <input type="text" name="numero" id="Numero" class="form-control" placeholder="Numero de la salle" required>
               </div>
-              <div class="form-control">
+              <div class="form-group">
                 <label for="Capacite">Capacite de la salle</label>
-                <input type="number"  name="capacite" id="Capacite" placeholder="Capacite de la salle" required>
+                <input type="number"  name="capacite" class="form-control" id="Capacite" placeholder="Capacite de la salle" required>
               </div>
               <button type="submit" class="btn btn-primary">ajouter</button>
             </form>
