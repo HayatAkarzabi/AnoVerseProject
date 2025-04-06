@@ -22,7 +22,7 @@
         </ul>
         <div class="d-flex justify-content-center">
             <div class="box">
-                <input type="text" placeholder="Search....">
+                <input type="text" name="chercherFilm" placeholder="Search....">
                 <a href="#"><i class="fas fa-search"></i></a>
             </div>
         </div>
