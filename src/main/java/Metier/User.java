@@ -17,7 +17,6 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nom;
     private String email;
     private String motDePasse;
 
@@ -45,7 +44,6 @@ public class User implements Serializable {
     }
 
     public User(String nom, String email, String motDePasse, String role) throws IOException {
-        this.nom = nom;
         this.email = email;
         this.motDePasse = BCrypt.hashpw(motDePasse, BCrypt.gensalt());
         this.role = (role == null || role.isEmpty()) ? "client" : role;

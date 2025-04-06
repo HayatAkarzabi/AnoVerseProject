@@ -12,7 +12,7 @@
                 <a class="nav-link active" href="index.jsp"><i class="fa-solid fa-house"></i> Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin/home.jsp"> Action</a>
+                <a class="nav-link" href=""> Action</a>
             </li><li class="nav-item">
             <a class="nav-link" href="#"> Child</a>
         </li>

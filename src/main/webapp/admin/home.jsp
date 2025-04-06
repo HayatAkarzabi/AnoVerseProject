@@ -72,12 +72,12 @@
         <div class="menu">
             <ul>
                 <li><a href="#" id="all-animes"><i class="fa-solid fa-video "></i>gestion Animes</a></li>
-                <li><a href="#" id="reservations"><i class="fas fa-plus-square "></i>gestion Reservations</a></li>
-                <li><a href="#" id="sales"><i class="fa-solid fa-ticket "></i>gestion Salles</a></li>
-                <li><a href="#" id="add-user"><i class="fa-solid fa-user-plus "></i> gestion users</a></li>
-                <li><a href="#" id="paiments">paiments</a></li>
-                <li><a href="#" id="seances">gestion seances</a></li>
-                <li><a href="#" id="logout"> <i class="fa-solid fa-arrow-right-to-bracket "></i> Log Out</a></li>
+                <li><a href="#" id="reservations"><i class="fa-solid fa-ticket "></i>gestion Reservations</a></li>
+                <li><a href="#" id="sales"><i class="fa-solid fa-person-shelter"></i>gestion Salles</a></li>
+                <li><a href="#" id="add-user"><i class="fa-solid fa-users"></i>gestion users</a></li>
+                <li><a href="#" id="paiments"><i class="fa-solid fa-money-bill"></i>paiments</a></li>
+                <li><a href="#" id="seances"><i class="fa-solid fa-tv"></i>gestion seances</a></li>
+                <li><a href="../index.jsp" id="logout"> <i class="fa-solid fa-arrow-right-to-bracket "></i> Log Out</a></li>
 
             </ul>
         </div>
@@ -130,6 +130,121 @@
 
     <div id="all-reservation-content" class="content-box">
 
+        <div class="container-fluid py-4">
+            <div class="row mb-4">
+                <div class="col">
+                    <h2 class="text-center"><i class="fas fa-ticket-alt me-2"></i>Gestion des Réservations</h2>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Tableau des réservations -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Liste des Réservations</h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="table-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Client</th>
+                                        <th>Séance</th>
+                                        <th>Date Réservation</th>
+                                        <th>Places</th>
+                                        <th>Paiement</th>
+                                        <th>Montant</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                <tbody>
+                                <%
+                                    ImplIReservation implIReservation = new ImplIReservation();
+                                    List<Reservation> reservations = implIReservation.afficherTousReservations();
+                                    if (reservations != null&& !reservations.isEmpty()) {
+                                        for (Reservation reservation : reservations) {
+                                %>
+                                <tr>
+                                    <td><%=reservation.getId()%></td>
+                                    <td><div><%=reservation.getUser().getEmail()%></div></td>
+                                    <td><div>ID: <%=reservation.getSeance().getId()%></div></td>
+                                    <td>
+                                        <fmt:formatDate value="<%=reservation.getDateReservation()%>" pattern="dd/MM/yyyy HH:mm" />
+                                    </td>
+                                    <td><%=reservation.getNmbr_places()%></td>
+                                    <td>
+                                            <span class="badge bg-success badge-payment">
+                                                <%=reservation.getPaiement().getMéthode()%>
+                                            </span>
+                                    </td>
+                                    <td><%=reservation.getPaiement().getMontant()%></td>
+                                    <td class="action-buttons">
+                                        <div class="btn-group">
+                                            <a href="../AdminDeleteReservationServlet?id=<%=reservation.getId()%>">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <%
+                                        }
+                                    }else {
+                                %>
+                                <tr>
+                                    <td colspan="8" class="text-center py-4">
+                                        <div class="text-muted">
+                                            <i class="fas fa-info-circle me-2"></i>Aucune réservation trouvée
+                                        </div>
+                                    </td>
+                                </tr>
+                                <%
+                                    }
+                                %>
+
+
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Script pour les modals
+            document.addEventListener('DOMContentLoaded', function() {
+                // Modal de paiement
+                const addPaymentModal = document.getElementById('addPaymentModal');
+                if (addPaymentModal) {
+                    addPaymentModal.addEventListener('show.bs.modal', function (event) {
+                        const button = event.relatedTarget;
+                        const reservationId = button.getAttribute('data-reservation-id');
+                        document.getElementById('paymentReservationId').value = reservationId;
+                    });
+                }
+
+                // Modal de suppression
+                const deleteConfirmModal = document.getElementById('deleteConfirmModal');
+                if (deleteConfirmModal) {
+                    deleteConfirmModal.addEventListener('show.bs.modal', function (event) {
+                        const button = event.relatedTarget;
+                        const reservationId = button.getAttribute('data-reservation-id');
+                        document.getElementById('deleteReservationId').value = reservationId;
+                    });
+                }
+            });
+        </script>
 
     </div>
 
@@ -169,7 +284,7 @@
                         <td><%=s.getId()%></td>
                         <td><%=s.getNumero()%></td>
                         <td><%=s.getCapacite()%></td>
-                        <td><a href="ModifierSalle.jsp?id=<%=s.getId()%>">modifier</a> </td>
+                        <td><a  href="ModifierSalle.jsp?id=<%=s.getId()%>">modifier</a> </td>
                         <td><a href="../supprimerSalle?id=<%=s.getId()%>">supprimer</a></td>
                     </tr>
                     <%}
@@ -330,7 +445,7 @@
                                     <% } %>
                                 </p>
                                 <div class="mt-3">
-                                    <a href="modifierSeance.jsp?id=<%= seance.getId() %>" class="btn btn-warning ms-2">Modifier</a>
+                                    <a href="modifierSeance.jsp?id=<%= seance.getId() %>" class="btn ms-2">Modifier</a>
                                     <a href="../supprimerSeance?id=<%= seance.getId() %>">Supprimer</a>
                                 </div>
                             </div>

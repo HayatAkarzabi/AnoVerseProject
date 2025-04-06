@@ -87,7 +87,7 @@
         %>
         <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-                <img src="<%=filmA.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
+                <img src="<%=filmA.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
                 <p><%=filmA.getTitle()%></p>
                 <a href="description?Id=<%=filmA.getId()%>">view more</a>
             </div>
@@ -107,18 +107,18 @@
 
 
 <div class="container">
-    <h3 class="text-center">Child</h3>
+    <h3 class="text-center">Drama</h3>
     <div class="row">
         <%
             ImplFilm implFilm2 = new ImplFilm();
-            List<Film> filmsC =implFilm2.getAllFilmsbygenre("Child");
+            List<Film> filmsC =implFilm2.getAllFilmsbygenre("Drama");
          if(filmsC !=null){
             for (Film filmC : filmsC) {
 
             %>
-        <div class="card crd-ho mx-2">
+        <div class="card crd-ho">
             <div class="card-body text-center">
-                <img src="<%=filmC.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
+                <img src="<%=filmC.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
                 <p><%=filmC.getTitle()%></p>
                 <a href="description?Id=<%=filmC.getId()%>">view more</a>
             </div>
@@ -146,9 +146,9 @@
                 for (Film filmF : filmsF) {
 
         %>
-        <div class="card crd-ho mx-2">
+        <div class="card crd-ho">
             <div class="card-body text-center">
-                <img src="<%=filmF.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
+                <img src="<%=filmF.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
                 <p><%=filmF.getTitle()%></p>
                 <a href="description?Id=<%=filmF.getId()%>">view more</a>
             </div>

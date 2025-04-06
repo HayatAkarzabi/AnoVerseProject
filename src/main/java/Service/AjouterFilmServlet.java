@@ -38,7 +38,7 @@ public class AjouterFilmServlet extends HttpServlet {
             String actors = request.getParameter("actors");
             String writer = request.getParameter("writer");
             String description = request.getParameter("description");
-
+            System.out.println("Images");
             Part filePart = request.getPart("bimg");
             String fileName =Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
             String Images = getServletContext().getRealPath("") + File.separator + "Images";
@@ -58,13 +58,13 @@ public class AjouterFilmServlet extends HttpServlet {
                 System.out.println("Veuillez remplir tous les champs !");
                 return;
             }
-//                public Film(String title, String genre, int year, String director, String actors, String writer, String description, String imageUrl) {
 
-
-                Film film = new Film(title, genre, year, director, actors, writer, description, "Images/" +fileName);
-
+            Film film = new Film(title, genre, year, director, actors, writer, description, "Images/" +fileName);
+            System.out.println("hi!");
             filmDao.AddFilm(film);
+            System.out.println("film");
             request.getSession().setAttribute("message", "Film ajouté avec succès !");
+
             response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
 
             // Rediriger vers la page principale

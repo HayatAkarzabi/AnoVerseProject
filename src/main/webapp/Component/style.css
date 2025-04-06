@@ -146,18 +146,6 @@ body::before {
     top: 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* The dots/bullets/indicators */
 .dot {
     cursor: pointer;
@@ -235,72 +223,72 @@ body::before {
 
 .card {
     top: 80px;
-    background-color: #000000; /* Fond noir */
-    color: #ffffff; /* Texte doré */
-    border: 2px solid #e50914; /* Bordure dorée */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 0 15px rgb(229, 9, 20); /* Ombre dorée */
-    max-width: 500px; /* Largeur maximale */
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #e50914;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgb(229, 9, 20);
+    max-width: 500px;
 }
 
 .card-body {
-    padding: 30px; /* Espacement intérieur */
+    padding: 30px;
 }
 
 .form-group {
-    margin-bottom: 20px; /* Espace entre les groupes de formulaire */
-    text-align: left; /* Aligne les labels à gauche */
+    margin-bottom: 20px;
+    text-align: left;
 }
 
 .form-group label {
-    color: #e50914; /* Labels en doré */
-    display: block; /* Label sur toute la largeur */
-    margin-bottom: 5px; /* Espace sous le label */
-    text-align: center; /* Centre les labels */
+    color: #e50914;
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 .form-control {
-    background-color: #2d2d2d; /* Fond des champs légèrement plus clair */
-    border: 1px solid goldenrod; /* Bordure dorée */
-    color: gold; /* Texte blanc */
-    border-radius: 20px; /* Coins très arrondis */
-    text-align: center; /* Centre le texte des inputs */
+    background-color: #2d2d2d;
+    border: 1px solid #e50914;
+    color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
 }
 
 .form-control:focus {
-    background-color: #333; /* Fond un peu plus clair quand focus */
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8); /* Lueur dorée quand focus */
-    border-color: gold; /* Bordure plus brillante quand focus */
-    color: gold; /* Garde le texte blanc */
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    border-color: #e50914;
+    color: #e50914;
 }
 
 .btn-primary {
-    background-color: goldenrod; /* Fond du bouton doré */
-    border-color: gold; /* Bordure du bouton */
-    color: #1a1a1a; /* Texte noir */
-    border-radius: 20px; /* Coins arrondis */
+    background-color: #e50914;
+    border-color: #e50914;
+    color: #1a1a1a;
+    border-radius: 20px;
     padding: 8px 30px; /* Padding horizontal plus grand */
     margin: 10px 0; /* Marge verticale */
     font-weight: bold; /* Texte en gras */
 }
 
 .btn-primary:hover {
-    background-color: gold; /* Plus brillant au survol */
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Effet de lueur au survol */
-    transform: scale(1.05); /* Légèrement plus grand au survol */
+    background-color: #e50914;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    transform: scale(1.05);
 }
 
 .card a {
-    color: goldenrod; /* Liens dorés */
-    text-decoration: none; /* Pas de soulignement */
-    display: inline-block; /* Pour permettre les effets */
-    margin-top: 10px; /* Marge au-dessus */
-    transition: all 0.3s ease; /* Transition douce */
+    color: #831818;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: all 0.3s ease;
 }
 
 .card a:hover {
-    color: gold; /* Plus brillant au survol */
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6); /* Lueur au survol */
+    color: #ffffff;
+    text-shadow: 0 0 5px rgb(131, 24, 24);
 }
 
 .alert {

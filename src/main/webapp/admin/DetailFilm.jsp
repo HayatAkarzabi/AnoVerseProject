@@ -76,7 +76,7 @@
                         <a href="modifierFilm.jsp?id=<%= film.getId() %>" class="btn btn-warning me-2">
                             <i class="bi bi-pencil"></i> Modifier
                         </a>
-                        <a href="../supprimerFilm?id=<%= film.getId() %>" class="btn btn-danger">
+                        <a href="../supprimerFilm?id=<%= film.getId() %>" class="btn ">
                             <i class="bi bi-trash"></i> Supprimer
                         </a>
                     </div>

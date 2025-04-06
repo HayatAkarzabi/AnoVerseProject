@@ -26,7 +26,8 @@ public class Paiement  implements Serializable {
     private Double montant;
     private LocalDate date;
     private PaimementType méthode;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reservation_id")
     private Reservation reservation;
 
 
