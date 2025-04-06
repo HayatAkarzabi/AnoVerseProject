@@ -1,0 +1,20 @@
+trigger:
+  - main
+pool:
+  name: 'AniVerseAgent'
+  demands:
+    - agent.name -equals 'AniverseAgent'
+
+steps:
+  # Étape de compilation du projet
+  - task: Maven@3  # Utilisation de la tâche Maven pour le build
+    inputs:
+      mavenPomFile: 'pom.xml'  # Localisation du fichier POM de ton projet Maven
+      options: '-X'  # Option pour avoir des logs détaillés
+      goals: 'clean install'  # Objectif pour nettoyer et installer les dépendances
+
+  # Étape pour exécuter les tests
+  - task: Maven@3  # Utilisation de Maven pour exécuter les tests
+    inputs:
+      mavenPomFile: 'pom.xml'  # Localisation du fichier POM de ton projet Maven
+      goals: 'test'  # Exécution des tests

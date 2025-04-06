@@ -36,4 +36,6 @@ public class Reservation  implements Serializable {
         this.seance = seance;
         SerializationManager.SérialiserObjet(this,"Serialisation.ser");
     }
+
+
 }

@@ -1,4 +1,4 @@
-/*package org.example.demo;
+package org.example.demo;/*package org.example.demo;
 
 import Dao.ImplFilm;
 import Metier.Film;
@@ -66,3 +66,13 @@ public class FilmServlet extends HttpServlet {
 }
 
  */
+
+
+import static org.junit.Assert.assertEquals;
+
+class CalculatriceTest {
+    @org.testng.annotations.Test
+    void testAddition() {
+        assertEquals(5, 2 + 3);
+    }
+}
