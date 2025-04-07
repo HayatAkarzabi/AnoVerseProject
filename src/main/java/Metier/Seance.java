@@ -11,10 +11,11 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
-
+@AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
@@ -27,6 +28,10 @@ public class Seance /*implements Serializable*/ {
 
     private Long id;
     private LocalDateTime date ;
+    private String formattedDate;
+
+
+
     @OneToMany
     List<Reservation> reservations;
     @ManyToOne
@@ -34,12 +39,57 @@ public class Seance /*implements Serializable*/ {
     @ManyToOne
     private Film film;
 
-    public Seance(LocalDateTime date, Long id,Film film,Salle salle) throws IOException {
+    public Seance(LocalDateTime date,Film film,Salle salle) throws IOException {
         this.date = date;
-        this.id = id;
+
         this.reservations = new ArrayList<>();
         this.film = film;
         this.salle = salle;
 //        SerializationManager.SérialiserObjet(this,"Serialisation.ser");
     }
-}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public Salle getSalle() {
+        return salle;
+    }
+
+    public void setSalle(Salle salle) {
+        this.salle = salle;
+    }
+
+    public Film getFilm() {
+        return film;
+    }
+
+    public String getFormattedDate() {
+        return formattedDate;
+    }
+
+    public void setFilm(Film film) {
+        this.film = film;
+    }}
+
+

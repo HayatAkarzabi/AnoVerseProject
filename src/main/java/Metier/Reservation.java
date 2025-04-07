@@ -36,8 +36,7 @@ public class Reservation implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Seance seance;
 
-    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private Paiement paiement;
     private Date dateReservation;
 
@@ -45,13 +44,13 @@ public class Reservation implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Film film;
-//    @ManyToOne
-//    @JoinColumn(name = "place_id", referencedColumnName = "id")
-//    private Place place;
-//
-//
-//    @Column(nullable = false)
-//    private String statut = "CONFIRMÉ"; // ou "ANNULÉ", "EN_ATTENTE"
+    @ManyToOne
+    @JoinColumn(name = "place_id", referencedColumnName = "id")
+    private Place place;
+
+
+    @Column(nullable = false)
+    private String statut = "CONFIRMÉ"; // ou "ANNULÉ", "EN_ATTENTE"
 
     public Reservation(Film film, Seance seance, Date dateReservation, int nombrePlaces) {
         this.film = film;
@@ -65,7 +64,7 @@ public class Reservation implements Serializable {
         this.seance = seance;
         this.dateReservation = dateReservation;
         this.nombrePlaces = nombrePlaces;
-//        SerializationManager.SérialiserObjet(this, "Serialisation.ser");
+        SerializationManager.SérialiserObjet(this, "Serialisation.ser");
     }
 
     public Long getId() {
@@ -124,21 +123,21 @@ public class Reservation implements Serializable {
         this.film = film;
     }
 
-//    public Place getPlace() {
-//        return place;
-//    }
-//
-//    public void setPlace(Place place) {
-//        this.place = place;
-//    }
-//
-//    public String getStatut() {
-//        return statut;
-//    }
-//
-//    public void setStatut(String statut) {
-//        this.statut = statut;
-//    }
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
 
     public Reservation(Film film, Date dateReservation, int nombrePlaces) throws IOException {
         this.film = film;

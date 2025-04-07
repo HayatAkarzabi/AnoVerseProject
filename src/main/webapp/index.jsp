@@ -77,7 +77,7 @@
 </div>
 
 <div class="container">
-    <h3 class="text-center" id="Action">Action</h3>
+    <h3 class="text-center">Action</h3>
     <div class="row">
         <%
             ImplFilm implFilm1 = new ImplFilm();
@@ -87,7 +87,7 @@
         %>
         <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-                <img src="<%=filmA.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
+                <img src="<%=filmA.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
                 <p><%=filmA.getTitle()%></p>
                 <a href="description?Id=<%=filmA.getId()%>">view more</a>
             </div>
@@ -98,24 +98,27 @@
 
         %>
     </div>
-</div><br><br><br>
+</div>
+<div class="text-center">
+    <a href="" class="btn btn-danger btn-sm">View All</a>
+</div>
 <hr width="50%" size="3" color="#000" noshade align="center">
 
 
 
 <div class="container">
-    <h3 class="text-center" id="Drama">Drama</h3>
+    <h3 class="text-center">Child</h3>
     <div class="row">
         <%
             ImplFilm implFilm2 = new ImplFilm();
-            List<Film> filmsC =implFilm2.getAllFilmsbygenre("Drama");
+            List<Film> filmsC =implFilm2.getAllFilmsbygenre("Child");
          if(filmsC !=null){
             for (Film filmC : filmsC) {
 
             %>
         <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-                <img src="<%=filmC.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
+                <img src="<%=filmC.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
                 <p><%=filmC.getTitle()%></p>
                 <a href="description?Id=<%=filmC.getId()%>">view more</a>
             </div>
@@ -126,23 +129,26 @@
         }
         %>
     </div>
-</div><br><br><br>
+</div>
+<div class="text-center">
+    <a href="" class="btn btn-danger btn-sm">View All</a>
+</div>
 <hr width="50%" size="3" color="#000" noshade align="center">
 
 
 <div class="container">
-    <h3 class="text-center" id="Family">Family</h3>
+    <h3 class="text-center">Family</h3>
     <div class="row">
         <%
             ImplFilm implFilm3 = new ImplFilm();
-            List<Film> filmsF =implFilm3.getAllFilmsbygenre("Family");
+            List<Film> filmsF =implFilm2.getAllFilmsbygenre("Family");
             if(filmsF !=null){
                 for (Film filmF : filmsF) {
 
         %>
         <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-                <img src="<%=filmF.getImageUrl()%>" style="width: 150px;height: 200px" class="img-thumblin">
+                <img src="<%=filmF.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
                 <p><%=filmF.getTitle()%></p>
                 <a href="description?Id=<%=filmF.getId()%>">view more</a>
             </div>
@@ -153,7 +159,10 @@
             }
         %>
     </div>
-</div><br><br><br>
+</div>
+<div class="text-center">
+    <a href="" class="btn btn-danger btn-sm">View All</a>
+</div>
 <%@include file="Component/footer.jsp"%>
 <script>
     let slideIndex = 0;

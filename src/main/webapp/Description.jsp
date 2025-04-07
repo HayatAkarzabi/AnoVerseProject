@@ -34,20 +34,6 @@
 <header>
   <%@include file="Component/navbar.jsp" %><br><br>
 </header>
-<%--
-<div class="container">
-  <div class="card">
-    <img src="${film.imageUrl}" alt="${film.title}">
-    <div class="info">
-      <h1>${film.title}</h1>
-      <p><b>🎭 Genre :</b> ${film.genre}</p>
-      <p><b>📅 Année :</b> ${film.year}</p>
-      <p><b>✍️ Écrivain :</b> ${film.writer}</p>
-      <p class="desc">${film.description}</p>
-      <a href="reservation?filmId=${film.id}" class="btn">🎟 Réserver</a>
-    </div>
-  </div>
-</div>--%>
 
 <main>
 

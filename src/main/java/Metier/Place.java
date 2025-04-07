@@ -13,7 +13,7 @@ import java.io.IOException;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString
+@ToString(exclude = "salle")
 public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +24,8 @@ public class Place {
     private Salle salle;
     private int numero;
     private boolean estResrvee;
+
+
 
     public Place(boolean estResrvee, int numero, Salle salle) throws IOException {
         this.estResrvee = estResrvee;

@@ -1,8 +1,10 @@
 package Dao;
 
 import Metier.Salle;
+import Metier.Seance;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 
@@ -57,4 +59,12 @@ public class ImplISalle implements ISalle {
         }
     }
 
+
+    public int getPlacesReservees(Long salleId) {
+        String jpql = "SELECT COUNT(p) FROM Place p WHERE p.salle.id = :salleId AND p.estResrvee = true";
+        TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+        query.setParameter("salleId", salleId);
+        Long count = query.getSingleResult();
+        return count.intValue();  // Retourne le nombre de places réservées
+    }
 }

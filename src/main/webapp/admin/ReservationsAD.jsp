@@ -79,12 +79,9 @@
                                 <thead class="table-light">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Client</th>
                                     <th>Séance</th>
                                     <th>Date Réservation</th>
                                     <th>Places</th>
-                                    <th>Paiement</th>
-                                    <th>Montant</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -97,18 +94,13 @@
                                 %>
                                 <tr>
                                     <td><%=reservation.getId()%></td>
-                                    <td><div><%=reservation.getUser().getEmail()%></div></td>
                                     <td><div>ID: <%=reservation.getSeance().getId()%></div></td>
                                     <td>
                                         <%= new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm").format(reservation.getDateReservation()) %>
                                     </td>
                                     <td><%=reservation.getNombrePlaces()%></td>
-                                    <td>
-                                            <span class="badge bg-success badge-payment">
-                                                <%=reservation.getPaiement().getMéthode()%>
-                                            </span>
-                                    </td>
-                                    <td><%=reservation.getPaiement().getMontant()%></td>
+
+
                                     <td class="action-buttons">
                                         <div class="btn-group">
                                             <a href="../AdminDeleteReservationServlet?id=<%=reservation.getId()%>">

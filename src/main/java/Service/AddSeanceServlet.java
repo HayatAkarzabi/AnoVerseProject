@@ -74,7 +74,7 @@ public class AddSeanceServlet extends HttpServlet {
 //                return;
 //            }
 
-            // Création de l'objet Seance
+            // Création de lmvn package'objet Seance
             Seance seance = new Seance();
             seance.setFilm(film);
             seance.setSalle(salle);
