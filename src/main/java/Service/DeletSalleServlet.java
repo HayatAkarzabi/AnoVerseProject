@@ -29,19 +29,19 @@ public class DeletSalleServlet extends HttpServlet {
             // Rechercher la salle par son ID
             Salle salle = implISalle.rechercherSalle(salleId);
             if (salle == null) {
-                request.setAttribute("error", "Salle non trouvée !");
-                request.getRequestDispatcher("/admin/listeSalles.jsp").forward(request, response);
+                request.getSession().setAttribute("message", "Salle non trouvée !");
+                request.getRequestDispatcher("/admin/SallesAD.jsp").forward(request, response);
                 return;
             }
 
             // Supprimer la salle
             implISalle.supprimerSalle(salleId);
-
-            // Rediriger vers la liste des salles après suppression
-            response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
+            request.getSession().setAttribute("message","Salle supprime avec succès!");
+                    // Rediriger vers la liste des salles après suppression
+            response.sendRedirect(request.getContextPath() + "/admin/SallesAD.jsp");
         } catch (Exception e) {
-            request.setAttribute("error", "Erreur lors de la suppression de la salle !");
-            request.getRequestDispatcher("/admin/home.jsp").forward(request, response);
+            request.setAttribute("message", "Erreur lors de la suppression de la salle !");
+            request.getRequestDispatcher("/admin/SallesAD.jsp").forward(request, response);
         }
     }
 }

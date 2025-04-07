@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-body">
                     <form action="../addUser" method="post">
-                        <h3 class="text-center">add User</h3>
+                        <h3 class="text-center">Ajouter un utilisateur</h3>
                         <% String error = (String) request.getAttribute("error"); %>
                         <% if (error != null) { %>
                         <div class="alert alert-danger" role="alert">

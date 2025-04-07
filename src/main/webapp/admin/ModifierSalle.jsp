@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Modifier Salle</title>
+    <title>Salles</title>
     <%@include file="CSS.jsp"%>
 
 </head>
@@ -85,7 +85,7 @@
             <div class="card-body">
                 <form action="../modifierSalle" method="post">
                     <input type="hidden" name="id" value="<%=salle.getId()%>">
-                    <h3 class="text-center">Moifier Salle</h3>
+                    <h3 class="text-center">Modifier Salle</h3>
                     <% String error = (String) request.getAttribute("error"); %>
                     <% if (error != null) { %>
                     <div class="alert alert-danger" role="alert">
@@ -100,7 +100,7 @@
                         <label for="capacite">Capacite</label>
                         <input type="number" name="capacite" class="form-control" id="capacite" value="<%=salle.getCapacite()%>" placeholder="Capacite du Salle">
                     </div>
-                    <button type="submit" class="btn btn-primary">ajouter</button>
+                    <button type="submit" class="btn btn-primary">modifier</button>
                 </form>
             </div>
         </div>

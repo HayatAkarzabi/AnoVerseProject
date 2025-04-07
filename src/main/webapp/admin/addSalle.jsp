@@ -17,7 +17,7 @@
       <div class="col-md-6 offset-md-4">
         <div class="card">
           <div class="card-body">
-            <h2 class="text-center">Add Salle</h2>
+            <h2 class="text-center">Ajouter Salle</h2>
             <form action="../addSalle" method="post">
               <div class="form-group">
                 <label for="Numero">Numero de la salle</label>

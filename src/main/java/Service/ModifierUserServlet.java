@@ -28,20 +28,20 @@ public class ModifierUserServlet extends HttpServlet {
 
 
             if (email == null || email.isEmpty() || role == null || role.isEmpty() || password == null || password.isEmpty()) {
-                request.setAttribute("message", "tous les champes sont obligatoires.");
-                request.getRequestDispatcher("modifierUtilisateur.jsp").forward(request, response);
+                request.getSession().setAttribute("message",  "tous les champes sont obligatoires.");
+                request.getRequestDispatcher("ModifierUser.jsp?id="+id).forward(request, response);
                 return;
             }
 
             User user = new User(id, email, role, password);
             implUser.UpdateUser(user);
-            request.setAttribute("message", "modification successful");
-            response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
+            request.getSession().setAttribute("message",  "modification successful");
+            response.sendRedirect(request.getContextPath() + "/admin/UsersAD.jsp");
 
         } catch (Exception e) {
             e.printStackTrace();
             request.getSession().setAttribute("message", "Erreur lors de la modification du user !");
-            response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
+            response.sendRedirect(request.getContextPath() + "/admin/UsersAD.jsp");
         }
     }
 

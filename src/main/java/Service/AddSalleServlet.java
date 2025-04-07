@@ -25,8 +25,8 @@ public class AddSalleServlet extends HttpServlet {
         String numero = request.getParameter("numero");
         int capacite = Integer.parseInt(request.getParameter("capacite"));
         if(numero == null || numero.isEmpty()||capacite == 0){
-            request.setAttribute("error", "Veuillez remplir tous les champs !");
-            request.getRequestDispatcher("/admin/home.jsp").forward(request, response);
+            request.getSession().setAttribute("message", "Veuillez remplir tous les champs !");
+            request.getRequestDispatcher("/admin/SallesAD.jsp").forward(request, response);
             return;
         }
         try {
@@ -36,11 +36,12 @@ public class AddSalleServlet extends HttpServlet {
                 s.getPlaces().add(place);
             }
             implISalle.ajouterSalle(s);
-            response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
+            request.getSession().setAttribute("message","Salle ajoutee avec succès!");
+            response.sendRedirect(request.getContextPath() + "/admin/SallesAD.jsp");
         } catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("error", "Erreur lors de l'ajout de la salle !");
-            request.getRequestDispatcher("/admin/home.jsp").forward(request, response);
+            request.getSession().setAttribute("message",  "Erreur lors de l'ajout de la salle !");
+            request.getRequestDispatcher("/admin/SallesAD.jsp").forward(request, response);
         }
     }
 }

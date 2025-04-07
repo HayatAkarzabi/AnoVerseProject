@@ -27,23 +27,24 @@ public class addUserSevlet extends HttpServlet {
         String role = request.getParameter("role");
         if (email == null || role == null || password == null || confirmPassword == null ||
                 email.isEmpty() || role.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            request.setAttribute("error", "Veuillez remplir tous les champs !");
+            request.getSession().setAttribute("message",  "Veuillez remplir tous les champs !");
             request.getRequestDispatcher("/admin/addUser.jsp").forward(request, response);
             return;
         }
         if (!password.equals(confirmPassword)) {
-            request.setAttribute("error", "Les mots de passe ne correspondent pas !");
+            request.getSession().setAttribute("message", "Les mots de passe ne correspondent pas !");
             request.getRequestDispatcher("/admin/addUser.jsp").forward(request, response);
             return;
         }
         try {
             User user = new User(email, password, role);
             userDao.AddUser(user);
-            response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
+            request.getSession().setAttribute("message","Utilisateur ajoute avec succès");
+                    response.sendRedirect(request.getContextPath() + "/admin/UsersAD.jsp");
         } catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("error", "Erreur lors de l'ajout de l'utilisateur !");
-            request.getRequestDispatcher("/admin/addUser.jsp").forward(request, response);
+            request.getSession().setAttribute("message", "Erreur lors de l'ajout de l'utilisateur !");
+            request.getRequestDispatcher("/admin/UsersAD.jsp").forward(request, response);
         }
     }
 }

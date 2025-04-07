@@ -12,7 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Film</title>
     <%@include file="CSS.jsp"%>
 </head>
 <body>
@@ -103,7 +103,7 @@
                             <input name="bimg" type="file" class="form-control-file"  id="exampleFormControlFile1" >
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Modifier</button>
+                            <button type="submit" class="btn btn-primary">modifier</button>
                         </div>
                     </form>
                 </div>
