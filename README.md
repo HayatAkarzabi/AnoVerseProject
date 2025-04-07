@@ -1,5 +1,6 @@
 # 🎬 AniVerse - Plateforme de Réservation de Billets de Cinéma pour les Films d’Animation
-
+###  Logo App
+![Logo App](src/main/webapp/Images/logo1.jpeg)
 **AniVerse** est une application web moderne dédiée à la réservation de billets de cinéma, spécialisée dans les films d’animation japonais et internationaux. Développée dans le cadre d’un projet académique, cette plateforme offre une expérience fluide et interactive pour les amateurs d’animes et de cinéma d’animation.
 
 ---
@@ -146,16 +147,26 @@ aniverse/
 
 ## 🖼️ Captures d’écran
 
-> 📷 Les captures seront ajoutées dans le dossier `/Images/` pour illustrer l’interface utilisateur, le tableau d’administration et les notifications.
+> 📷 Les captures seront ajoutées dans le dossier `/Images/` pour illustrer l’interface utilisateur, le tableau d’administration .
 
 ### Page d'accueil
-![Accueil](Images/page_acceuil.png)
+![Accueil](src/main/webapp/Images/page_accueil.png)
+![Accueil](src/main/webapp/Images/pa2.png)
+
+### Interface de Login
+![Login Page](src/main/webapp/Images/loginpage.png)
+
+### Interface de SignUp
+![SignUp Page](src/main/webapp/Images/signup.png)
 
 ### Interface de réservation
-![Réservation](Images/reservation.png)
+![Réservation](src/main/webapp/Images/reservation.png)
 
 ### Tableau de bord admin
-![Admin](Images/admin.jpeg)
+![Admin](src/main/webapp/Images/admin.jpeg)
+
+### Interface de description
+![Description](src/main/webapp/Images/desc.png)
 
 ---
 
