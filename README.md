@@ -64,8 +64,7 @@ Architecture MVC (Model - View - Controller) avec séparation claire des respons
 | Docker              | Conteneurisation                         |
 | Jenkins             | Intégration continue                     |
 | GitHub Actions      | Automatisation de tests et déploiement   |
-| JUnit               | Tests unitaires                          |
-| Postman             | Tests API REST                           |
+| JUnit               | Tests unitaires                          | |
 
 ---
 
