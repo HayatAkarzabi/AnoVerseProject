@@ -18,9 +18,11 @@ public class DeletUserServlet extends HttpServlet {
                 ImplUser implUser = new ImplUser();
                 implUser.DeleteUser(id);
                 request.getSession().setAttribute("message", "User supprime avec succès !");
-                response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
+                response.sendRedirect(request.getContextPath() + "/admin/UsersAD.jsp");
             }catch (Exception e) {
                 e.printStackTrace();
+                request.getSession().setAttribute("message","erreur de suppression d'utilisateur");
+                response.sendRedirect(request.getContextPath() + "/admin/UsersAD.jsp");
             }
         }
 }

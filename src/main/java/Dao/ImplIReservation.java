@@ -39,9 +39,8 @@ public class ImplIReservation implements IReservation {
         }
         return null;
     }
-    public   List<Reservation> afficherTousReservations(){
-        return em.createNativeQuery("select  * from Reservation ").getResultList();
-
+    public List<Reservation> afficherTousReservations() {
+        return em.createNativeQuery("SELECT * FROM Reservation", Reservation.class).getResultList();
     }
 
     public List<Reservation> getAllReservations() {

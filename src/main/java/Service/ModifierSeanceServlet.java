@@ -46,7 +46,7 @@ public class ModifierSeanceServlet extends HttpServlet {
                     seanceDateStr == null || seanceDateStr.trim().isEmpty() ||
                     seanceTimeStr == null || seanceTimeStr.trim().isEmpty()) {
 
-                request.setAttribute("error", "Tous les champs sont obligatoires");
+                request.getSession().setAttribute("message", "Tous les champs sont obligatoires");
 
                 // Si l'ID de la séance est disponible, récupérer la séance pour réafficher le formulaire
                 if (seanceIdStr != null && !seanceIdStr.trim().isEmpty()) {
@@ -74,8 +74,8 @@ public class ModifierSeanceServlet extends HttpServlet {
             Salle salle = salleDao.rechercherSalle(salleId);
 
             if (seanceExistante == null || film == null || salle == null) {
-                request.setAttribute("error", "Séance, film ou salle introuvable");
-                request.getRequestDispatcher("/vues/modifierSeance.jsp").forward(request, response);
+                request.getSession().setAttribute("message",  "Séance, film ou salle introuvable");
+                request.getRequestDispatcher("/admin/SeancesAD.jsp").forward(request, response);
                 return;
             }
 
@@ -99,18 +99,18 @@ public class ModifierSeanceServlet extends HttpServlet {
 
             // Mise à jour de la séance dans la base de données
            seanceDao.modifierSeance(seanceExistante);
-
-           response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
+            request.getSession().setAttribute("message","Seance modifie avec succes!");
+            response.sendRedirect(request.getContextPath() + "/admin/SeancesAD.jsp");
 
         } catch (NumberFormatException e) {
-            request.setAttribute("error", "Format de numéro invalide");
-            request.getRequestDispatcher("/vues/modifierSeance.jsp").forward(request, response);
+            request.getSession().setAttribute("message", "Format de numéro invalide");
+            request.getRequestDispatcher("/admin/SeancesAD.jsp").forward(request, response);
         } catch (DateTimeParseException e) {
-            request.setAttribute("error", "Format de date ou d'heure invalide");
-            request.getRequestDispatcher("/vues/modifierSeance.jsp").forward(request, response);
+            request.getSession().setAttribute("message", "Format de date ou d'heure invalide");
+            request.getRequestDispatcher("/admin/SeancesAD.jsp").forward(request, response);
         } catch (Exception e) {
-            request.setAttribute("error", "Une erreur est survenue: " + e.getMessage());
-            request.getRequestDispatcher("/vues/modifierSeance.jsp").forward(request, response);
+            request.getSession().setAttribute("message", "Une erreur est survenue: " + e.getMessage());
+            request.getRequestDispatcher("/admin/SeancesAD.jsp").forward(request, response);
         }
     }
 }

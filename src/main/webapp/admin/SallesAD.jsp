@@ -4,14 +4,14 @@
 <%@ page import="java.time.format.DateTimeFormatter" %><%--
   Created by IntelliJ IDEA.
   User: hp
-  Date: 29/03/2025
-  Time: 15:37
+  Date: 07/04/2025
+  Time: 18:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Admin</title>
+    <title>Salles</title>
     <%@include file="CSS.jsp"%>
     <style>
         table {
@@ -53,54 +53,53 @@
     }
 %>
 <%@include file="SideBarra.jsp"%>
-<!-- Contenu dynamique -->
-<div id="content">
-    <!-- affichage liste des animes -->
-    <div id="all-animes-content" class="content-box">
-        <div class="container-fluid mb-3">
-            <div class="row align-items-center">
-                <div class="col-md-4">
-                    <!-- Colonne vide à gauche pour maintenir l'équilibre -->
-                </div>
-                <div class="col-md-4 text-center">
-                    <h2>Liste des Films</h2>
-                </div>
-                <div class="col-md-4 text-end">
-                    <a href="add%20film.jsp" class="btn btn-primary">
-                        <i class="fa-solid fa-plus"></i> Ajouter Film
-                    </a>
-                </div>
-            </div>
-        </div>
 
-        <div class="container mt-4">
-            <div class="row">
-                <%
-                    ImplFilm implFilm = new ImplFilm();
-                    List<Film> films = implFilm.getAllFilms();
-                    if (films != null) {
-                        for (Film film : films) {
-                %>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="../<%= film.getImageUrl() %>" class="card-img-top" alt="Affiche du film">
-                        <div class="card-body text-center">
-                            <h5 class="card-title"><%= film.getTitle() %></h5>
-                            <a href="DetailFilm.jsp?id=<%= film.getId() %>" >Voir Détails</a>
-                        </div>
-                    </div>
-                </div>
-                <%
-                        }
-                    }
-                %>
-            </div>
+<div id="sales-content" class="content-box">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <!-- Colonne vide à gauche pour maintenir l'équilibre -->
+        </div>
+        <div class="col-md-4 text-center">
+            <h2>Liste des Salles</h2>
+        </div>
+        <div class="col-md-4 text-end">
+            <a href="addSalle.jsp" class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i> Ajouter Salle
+            </a>
         </div>
     </div>
+    <div class="container mt-4">
+        <div class="row">
 
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>NUMERO</th>
+                    <th>Capaite</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                    <!--ajouter les seance dans chaque salle-->
+                </tr>
+                <%
+                    ImplISalle implISalle =new ImplISalle();
+                    List<Salle> salles = implISalle.afficherListSalle();
+                    if(salles!=null){
+                        for (Salle s : salles){
+                %>
+                <tr>
+                    <td><%=s.getId()%></td>
+                    <td><%=s.getNumero()%></td>
+                    <td><%=s.getCapacite()%></td>
+                    <td><a  href="ModifierSalle.jsp?id=<%=s.getId()%>">modifier</a> </td>
+                    <td><a href="../supprimerSalle?id=<%=s.getId()%>">supprimer</a></td>
+                </tr>
+                <%}
+                }
+                %>
+            </table>
 
-
-
+        </div>
+    </div>
 
 </div>
 </body>

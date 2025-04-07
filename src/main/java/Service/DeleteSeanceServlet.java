@@ -24,7 +24,8 @@ public class DeleteSeanceServlet extends HttpServlet {
 
         if (seanceIdStr == null || seanceIdStr.trim().isEmpty()) {
             // ID manquant, rediriger avec un message d'erreur
-            response.sendRedirect(request.getContextPath() + "/admin/hme.jsp?error=id_missing");
+            request.getSession().setAttribute("message","ID  invalide !");
+                    response.sendRedirect(request.getContextPath() + "/admin/SeancesAD.jsp");
             return;
         }
 
@@ -34,32 +35,31 @@ public class DeleteSeanceServlet extends HttpServlet {
 
             // Vérifier si la séance existe avant de la supprimer
             if (seanceDao.chercherSeance(seanceId) == null) {
-                response.sendRedirect(request.getContextPath() + "/admin/home.jsp?error=seance_not_found");
+                request.getSession().setAttribute("message","seance not found !");
+                        response.sendRedirect(request.getContextPath() + "/admin/SeancesAD.jsp");
                 return;
             }
             Seance seance = seanceDao.chercherSeance(seanceId);
             // Vérifier si la séance a des réservations
             if (!seance.getReservations().isEmpty()) {
-                response.sendRedirect(request.getContextPath() + "/admin/home.jsp?error=has_reservations");
+                request.getSession().setAttribute("message","has reservations");
+                        response.sendRedirect(request.getContextPath() + "/admin/SeancesAD.jsp");
                 return;
             }
 
             // Suppression de la séance
             seanceDao.supprimerSeance(seanceId);
-
-                response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
+            request.getSession().setAttribute("message","Seance supprimee avec succès!");
+                    response.sendRedirect(request.getContextPath() + "/admin/SeancesAD.jsp");
         } catch (NumberFormatException e) {
             // ID non valide
-            response.sendRedirect(request.getContextPath() + "/vues/listSeances.jsp?error=invalid_id");
+            request.getSession().setAttribute("message","ID  invalide !");
+                    response.sendRedirect(request.getContextPath() + "/admin/SeancesAD.jsp");
         } catch (Exception e) {
             // Autres erreurs
-            response.sendRedirect(request.getContextPath() + "/vues/listSeances.jsp?error=system_error");
+            request.getSession().setAttribute("message","system error !");
+                    response.sendRedirect(request.getContextPath() + "/admin/SeancesAD.jsp");
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // Rediriger vers la méthode doGet pour traiter la suppression
-        doGet(request, response);
-    }
 }

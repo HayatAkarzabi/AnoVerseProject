@@ -33,7 +33,7 @@ public class ModifierSalleServlet extends HttpServlet {
             Salle salle = implISalle.rechercherSalle(salleId);
             if (salle == null) {
                 request.setAttribute("error", "Salle non trouvée !");
-                request.getRequestDispatcher("/admin/home.jsp").forward(request, response);
+                request.getRequestDispatcher("/admin/SallesAD.jsp").forward(request, response);
                 return;
             }
 
@@ -41,14 +41,14 @@ public class ModifierSalleServlet extends HttpServlet {
             ajusterPlaces(salle, nouvelleCapacite);
 
             implISalle.modifierSalle(salle);
-
-            response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
+            request.getSession().setAttribute("message", "Salle ajoute avec succès !");
+            response.sendRedirect(request.getContextPath() + "/admin/SallesAD.jsp");
         } catch (NumberFormatException e) {
-            request.setAttribute("error", "ID ou capacité invalide !");
-            request.getRequestDispatcher("/admin/home.jsp").forward(request, response);
+            request.getSession().setAttribute("message", "ID ou capacité invalide !");
+            request.getRequestDispatcher("/admin/SallesAD.jsp").forward(request, response);
         } catch (Exception e) {
-            request.setAttribute("error", "Erreur lors de la mise à jour de la salle !");
-            request.getRequestDispatcher("/admin/home.jsp").forward(request, response);
+            request.getSession().setAttribute("message", "Erreur lors de la mise à jour de la salle !");
+            request.getRequestDispatcher("/admin/SallesAD.jsp").forward(request, response);
         }
     }
 

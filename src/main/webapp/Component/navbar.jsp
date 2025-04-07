@@ -12,17 +12,17 @@
                 <a class="nav-link active" href="index.jsp"><i class="fa-solid fa-house"></i> Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=""> Action</a>
+                <a class="nav-link" href="#Action"> Action</a>
             </li><li class="nav-item">
-            <a class="nav-link" href="#"> Child</a>
+            <a class="nav-link" href="#Drama"> Drama</a>
         </li>
             <li class="nav-item">
-                <a class="nav-link " href="#"> Family</a>
+                <a class="nav-link " href="#Family"> Family</a>
             </li>
         </ul>
         <div class="d-flex justify-content-center">
             <div class="box">
-                <input type="text" placeholder="Search....">
+                <input type="text" name="chercherFilm" placeholder="Search....">
                 <a href="#"><i class="fas fa-search"></i></a>
             </div>
         </div>

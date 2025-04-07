@@ -17,7 +17,7 @@
         <div class="col-md-6 offset-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="text-center">Add Anime</h3>
+                    <h3 class="text-center">Ajouter Film</h3>
                     <form action="../ajouterFilm" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="text" id="title" name="title" class="form-control" placeholder="Titre :" required>
@@ -41,7 +41,7 @@
                             <textarea name="description" id="description" class="form-control" rows="4" cols="50" PLACEHOLDER="description" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlFile1">Upload photo</label>
+                            <label for="exampleFormControlFile1"> Affiche du film</label>
                             <input name="bimg" type="file" class="form-control-file"  id="exampleFormControlFile1">
                         </div>
                         <div class="text-center">

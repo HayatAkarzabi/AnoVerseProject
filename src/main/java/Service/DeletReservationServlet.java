@@ -31,12 +31,12 @@ public class DeletReservationServlet extends HttpServlet {
 
 
         } catch (NumberFormatException e) {
-            request.getSession().setAttribute("errorMessage", "ID de réservation invalide.");
+            request.getSession().setAttribute("message", "ID de réservation invalide.");
         } catch (Exception e) {
-            request.getSession().setAttribute("errorMessage", "Erreur lors de la suppression : " + e.getMessage());
+            request.getSession().setAttribute("message", "Erreur lors de la suppression : " + e.getMessage());
         }
 
         // Redirection vers la page de gestion des réservations
-        response.sendRedirect("AdminReservationsServlet");
+        response.sendRedirect("ReservationsAD.jsp");
     }
 }

@@ -74,7 +74,7 @@ public class AddSeanceServlet extends HttpServlet {
 //                return;
 //            }
 
-            // Création de l'objet Seance
+            // Création de lmvn package'objet Seance
             Seance seance = new Seance();
             seance.setFilm(film);
             seance.setSalle(salle);
@@ -82,19 +82,17 @@ public class AddSeanceServlet extends HttpServlet {
 
             // Sauvegarde de la séance
             seanceDao.ajouterSeance(seance);
-
-            response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
-
-
+            request.getSession().setAttribute("message","Seance ajoutee avec succes");
+            response.sendRedirect(request.getContextPath() + "/admin/SeancesAD.jsp");
         } catch (NumberFormatException e) {
-            request.setAttribute("error", "Format de numéro invalide");
-            request.getRequestDispatcher("/admin/home.jsp").forward(request, response);
+            request.getSession().setAttribute("message", "Format de numéro invalide");
+            request.getRequestDispatcher("/admin/SeancesAD.jsp").forward(request, response);
         } catch (DateTimeParseException e) {
-            request.setAttribute("error", "Format de date ou d'heure invalide");
-            request.getRequestDispatcher("/admin/home.jsp").forward(request, response);
+            request.getSession().setAttribute("message", "Format de date ou d'heure invalide");
+            request.getRequestDispatcher("/admin/SeancesAD.jsp").forward(request, response);
         } catch (Exception e) {
-            request.setAttribute("error", "Une erreur est survenue: " + e.getMessage());
-            request.getRequestDispatcher("/admin/home.jsp").forward(request, response);
+            request.getSession().setAttribute("message",  "Une erreur est survenue: " + e.getMessage());
+            request.getRequestDispatcher("/admin/SeancesAD.jsp").forward(request, response);
         }
     }
 }

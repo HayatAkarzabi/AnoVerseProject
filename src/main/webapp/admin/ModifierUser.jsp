@@ -12,7 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Users</title>
     <%@include file="CSS.jsp"%>
 </head>
 <body>
@@ -73,7 +73,7 @@
         <div class="col-md-6 offset-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="text-center">Modifier User</h3>
+                    <h3 class="text-center">Modifier un utilisateur</h3>
                     <form action="../modifierUser" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<%=u.getId()%>">
                         <div class="form-group">
@@ -91,7 +91,7 @@
                             <label for="newpassword">Password</label>
                             <input type="password" name="newpassword" class="form-control" id="newpassword" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Modifier</button>
+                        <button type="submit" class="btn btn-primary">modifier</button>
                     </form>
                 </div>
             </div>
