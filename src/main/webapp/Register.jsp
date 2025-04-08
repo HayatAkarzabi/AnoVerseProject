@@ -13,13 +13,19 @@
 <div class="container p-2">
     <div class="row align-items-center"> <!-- Utilisation de align-items-center pour centrer verticalement -->
         <div class="col-md-6 text-center">  <!-- Ajout de col-md-6 -->
-            <img src="Images/logo.jpg" class="logo bounce">
+            <img src="Images/logo1.jpeg" class="logo bounce">
         </div>
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
                     <form action="Register" method="post">
                         <h3 class="text-center">Registration Page</h3>
+                        <% String error = (String) request.getAttribute("error"); %>
+                        <% if (error != null) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <%= error %>
+                        </div>
+                        <% } %>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

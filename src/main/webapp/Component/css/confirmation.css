@@ -1,0 +1,60 @@
+/* confirmation.css */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: #f5f5f5;
+    color: #111;
+}
+
+.confirmation-container {
+    max-width: 600px;
+    margin: 80px auto;
+    background: white;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-top: 8px solid #c80000;
+    text-align: center;
+}
+
+h1 {
+    color: #c80000;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.05em;
+    text-align: left;
+    margin: 0 auto 40px;
+    max-width: 400px;
+    line-height: 1.8em;
+}
+
+ul li {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 25px;
+    background-color: #111;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+a:hover {
+    background-color: #c80000;
+}

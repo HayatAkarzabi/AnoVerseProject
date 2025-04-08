@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&display=swap');
+/* Appliquer le style uniquement à la section description-container */
+.description-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+/* Image en plein écran */
+.image-container {
+    width: 100%;
+    text-align: center;
+}
+
+.film-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid red;
+}
+
+/* Détails du film */
+.film-details {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.film-info h1 {
+    color: red;
+    font-size: 4em;
+    margin-bottom: 10px;
+    font-family: "Agency FB";
+}
+
+.film-info p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* Boutons */
+.film-buttons {
+    margin-top: 20px;
+}
+
+.watch-button, .favorite-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.watch-button:hover, .favorite-button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+/* Section des commentaires */
+.comments-section {
+    margin-top: 40px;
+    padding: 15px;
+    background-color: #111;
+    border-radius: 10px;
+}
+
+.comments-section h2 {
+    color: red;
+}
+
+.comment {
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #222;
+    border-left: 3px solid red;
+    border-radius: 5px;
+}
+
+.comment-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form textarea {
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+}
+
+.comment-form button {
+    margin-top: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.comment-form button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}

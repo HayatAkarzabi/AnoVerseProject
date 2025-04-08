@@ -1,0 +1,162 @@
+/* Styles généraux */
+/*
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111111; !* Fond noir *!
+    color: #FFFFFF; !* Texte blanc *!
+    margin: 0;
+    padding: 0;
+}
+
+!* Container de réservation *!
+.reservation-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #222222; !* Fond légèrement plus clair que le fond principal *!
+    border-radius: 10px;
+}
+
+!* Titres *!
+h1, h2 {
+    color: #FF0000; !* Rouge pour les titres *!
+}
+
+!* Image du film *!
+.film-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+!* Formulaire *!
+form {
+    margin-top: 20px;
+    background-color: #333333; !* Fond sombre pour le formulaire *!
+    padding: 20px;
+    border-radius: 10px;
+}
+
+!* Labels et inputs *!
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #FF0000; !* Rouge pour les labels *!
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #FF0000; !* Bordure rouge *!
+    border-radius: 5px;
+    background-color: #444444; !* Fond sombre pour les champs de texte *!
+    color: #FFFFFF; !* Texte en blanc *!
+}
+
+!* Bouton de réservation *!
+button {
+    background-color: #FF0000; !* Rouge pour le bouton *!
+    color: #FFFFFF; !* Texte en blanc *!
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #CC0000; !* Rouge foncé au survol *!
+}
+
+!* Résultat d'erreur (si filmId manquant) *!
+.error-message {
+    color: #FF0000; !* Texte rouge *!
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+*/
+/* reservation.css */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    color: #111;
+}
+
+.reservation-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    border-top: 6px solid #c80000;
+}
+
+h1 {
+    color: #c80000;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+select, input[type="number"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-top: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+select:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #c80000;
+}
+
+#placesRestantes {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #111;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 20px;
+    font-size: 1em;
+    background: #c80000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #a00000;
+    transform: scale(1.02);
+}
+

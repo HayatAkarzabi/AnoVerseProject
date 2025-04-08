@@ -11,7 +11,7 @@ import java.util.List;
 public class ImplINotification implements INotification {
     private EntityManager em;
     public ImplINotification() {
-        em= Persistence.createEntityManagerFactory("AniVerse").createEntityManager();
+        em= Persistence.createEntityManagerFactory("aniverse").createEntityManager();
     }
 
     public void  ajouterNotification(Notification N) {

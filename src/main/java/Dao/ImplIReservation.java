@@ -9,7 +9,7 @@ import java.util.List;
 public class ImplIReservation implements IReservation {
     private EntityManager em;
     public ImplIReservation() {
-        em= Persistence.createEntityManagerFactory("AniVerse").createEntityManager();
+        em= Persistence.createEntityManagerFactory("aniverse").createEntityManager();
     }
     public void ajouterReservation(Reservation r) {
         em.getTransaction().begin();
@@ -39,9 +39,11 @@ public class ImplIReservation implements IReservation {
         }
         return null;
     }
-    public   List<Reservation> afficherTousReservations(){
-        return em.createNativeQuery("select  * from Reservation ").getResultList();
-
+    public List<Reservation> afficherTousReservations() {
+        return em.createNativeQuery("SELECT * FROM Reservation", Reservation.class).getResultList();
     }
 
+    public List<Reservation> getAllReservations() {
+        return em.createNativeQuery("select * from Reservation ").getResultList();
+    }
 }

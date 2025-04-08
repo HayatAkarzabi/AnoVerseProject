@@ -9,7 +9,7 @@ import java.util.List;
 public class ImplIPaiement implements IPaiement {
     private EntityManager em;
     public ImplIPaiement (){
-        em= Persistence.createEntityManagerFactory("AniVerse").createEntityManager();
+        em= Persistence.createEntityManagerFactory("aniverse").createEntityManager();
     }
     @Override
     public void ajouterPaiement(Paiement p) {

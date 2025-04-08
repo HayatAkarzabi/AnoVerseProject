@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*, java.util.*" %>
+<%@ page import="Dao.ImplFilm" %>
+<%@ page import="Metier.Film" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,8 +14,55 @@
 
 <!-- Slideshow container -->
 <div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <img src="Images/perfectBlue.jpg" style="width:100%" >
+    </div>
+    <div class="mySlides fade">
+        <img src="Images/home-img-3.png" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/home-img-2.png" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/sololeveling.jpg" style="width:100%" >
+    </div>
+    <div class="mySlides fade">
+        <img src="Images/monoke.jpg" style="width:100%" >
+    </div>
+
+
+    <div class="mySlides fade">
+        <img src="Images/madara.png" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/hunterXhunter.jpg" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/codeGeass.jpg" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/ghibli1.jpg" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/dandadan.jpg" style="width:100%" >
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/vinland%20saga.png" style="width:100%" >
+    </div>
+
+
+
     <!-- Full-width images with number and caption text -->
 
+<<<<<<< HEAD
     <div class="mySlides fade">
         <img src="Images/anime2.webp">
     </div>
@@ -21,6 +70,8 @@
     <div class="mySlides fade">
         <img src="Images/anime1.jpg" >
     </div>
+=======
+>>>>>>> devfront
 
 
 
@@ -54,17 +105,26 @@
 </div>
 
 <div class="container">
-    <h3 class="text-center">New Films</h3>
+    <h3 class="text-center">Action</h3>
     <div class="row">
-        <div class="card crd-ho">
+        <%
+            ImplFilm implFilm1 = new ImplFilm();
+            List<Film> filmsA = implFilm1.getAllFilmsbygenre("Action");
+            if (filmsA != null) {
+                for (Film filmA : filmsA) {
+        %>
+        <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-
-                <%-- la disponibilité de film --%>
-                <p>Disponible?</p>
-                <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
-                <p>Film name</p>
+                <img src="<%=filmA.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
+                <p><%=filmA.getTitle()%></p>
+                <a href="description?Id=<%=filmA.getId()%>">view more</a>
             </div>
         </div>
+        <%
+                }
+            }
+
+        %>
     </div>
 </div>
 <div class="text-center">
@@ -75,18 +135,27 @@
 
 
 <div class="container">
-    <h3 class="text-center">Recent Films</h3>
+    <h3 class="text-center">Child</h3>
     <div class="row">
-        <div class="card crd-ho">
+        <%
+            ImplFilm implFilm2 = new ImplFilm();
+            List<Film> filmsC =implFilm2.getAllFilmsbygenre("Child");
+         if(filmsC !=null){
+            for (Film filmC : filmsC) {
+
+            %>
+        <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-
-                <%-- la disponibilité de film --%>
-                <p>Disponible?</p>
-                <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
-                <p>Film name</p>
-
+                <img src="<%=filmC.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
+                <p><%=filmC.getTitle()%></p>
+                <a href="description?Id=<%=filmC.getId()%>">view more</a>
             </div>
         </div>
+
+        <%
+                }
+        }
+        %>
     </div>
 </div>
 <div class="text-center">
@@ -96,18 +165,27 @@
 
 
 <div class="container">
-    <h3 class="text-center">Old Films</h3>
+    <h3 class="text-center">Family</h3>
     <div class="row">
-        <div class="card crd-ho">
+        <%
+            ImplFilm implFilm3 = new ImplFilm();
+            List<Film> filmsF =implFilm2.getAllFilmsbygenre("Family");
+            if(filmsF !=null){
+                for (Film filmF : filmsF) {
+
+        %>
+        <div class="card crd-ho mx-2">
             <div class="card-body text-center">
-
-                <%-- la disponibilité de film --%>
-                <p>Disponible?</p>
-                <img src="Images/A%20blank%20background.png" style="width: 150px;height: 200px" class="img-thumblin">
-                <p>Film name</p>
-
+                <img src="<%=filmF.getImageUrl_home()%>" style="width: 200px;height: 300px" class="img-thumblin">
+                <p><%=filmF.getTitle()%></p>
+                <a href="description?Id=<%=filmF.getId()%>">view more</a>
             </div>
         </div>
+
+        <%
+                }
+            }
+        %>
     </div>
 </div>
 <div class="text-center">
